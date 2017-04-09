@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Team Stats</string>
+
+    <!-- Homepage Start -->
+    <string name="createNewTeamButton">Create New Team</string>
+    <string name="existingTeamButton">Existing Teams</string>
+    <string name="settingsButton">Settings</string>
+    <!-- Homepage End -->
+
+    <!-- Create Team Start -->
+    <string name="teamFromScratchButton">Create a team from scratch</string>
+    <string name="teamTemplateButton">Make team using template</string>
+    <!-- End -->
+
+    <!-- Create Team Popup Start -->
+    <string name="tfEnterTeamName">Enter Team Name</string>
+    <string name="tfEnterSport">Enter Sport</string>
+    <string name="cancelTeamCreateButton">Cancel</string>
+    <string name="teamCreatePopUpButton">Create</string>
+    <!-- End -->
+
+    <!-- Existing Teams Page Start -->
+    <!-- Existing Teams Page End -->
+
+
+    <!-- Settings Start -->
+    <string name="sendFeedbackButton">Send Feedback</string>
+    <string name="reorderTeamsButton">Reorder Teams</string>
+    <!-- Settings End -->
+
+    <!-- Send Feedback Start -->
+    <string name="feedBackName">Name</string>
+    <string name="feedbackSubmitButton">Submit</string>
+    <string name="feedbackEmail">Email</string>
+    <string name="feedbackBody">Feedback</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <!-- Send Feedback End -->
+</resources>
