@@ -11,44 +11,31 @@
     tools:context="com.example.logan.test2.SendFeedback">
 
     <EditText
+        android:id="@+id/feedbackSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editText7"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:hint="@string/feedBackName" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/feedbackName"
+        android:ems="10"
+        android:hint="Subject"
+        android:inputType="textEmailAddress" />
 
     <EditText
+        android:id="@+id/feedbackResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_below="@+id/editText7"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editText8"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:hint="@string/feedbackEmail" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:layout_below="@+id/editText8"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editText9"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:layout_above="@+id/feedbackSubmitButton"
-        android:hint="@string/feedbackBody" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/feedbackSubject"
+        android:ems="10"
+        android:hint="@string/feedbackBody"
+        android:inputType="textMultiLine" />
 
     <Button
         android:text="@string/feedbackSubmitButton"
