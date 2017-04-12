@@ -8,8 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.logan.test2.CreateTeamPopUp"
-    android:background="@android:color/darker_gray">
+    tools:context="com.example.logan.test2.CreateTeamPopUp">
 
     <EditText
         android:layout_width="wrap_content"
