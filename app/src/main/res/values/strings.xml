@@ -29,10 +29,9 @@
     <!-- Settings End -->
 
     <!-- Send Feedback Start -->
-    <string name="feedBackName">Name</string>
+    <string name="feedBackResponse">Feedback</string>
     <string name="feedbackSubmitButton">Submit</string>
-    <string name="feedbackEmail">Email</string>
-    <string name="feedbackBody">Feedback</string>
+    <string name="feedbackSubject">Subject</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="action_settings">Settings</string>
     <!-- Send Feedback End -->

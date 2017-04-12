@@ -18,9 +18,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/feedbackName"
         android:ems="10"
-        android:hint="Subject"
+        android:hint="@string/feedbackSubject"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -34,7 +33,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/feedbackSubject"
         android:ems="10"
-        android:hint="@string/feedbackBody"
+        android:hint="@string/feedBackResponse"
         android:inputType="textMultiLine"
         android:gravity="top|left"
         />
