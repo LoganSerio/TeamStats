@@ -14,8 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Position Name" />
+        android:hint="Position Name"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/submitAddPositionButton"

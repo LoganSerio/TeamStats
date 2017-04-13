@@ -6,18 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-public class CreatePosition extends AppCompatActivity {
+public class Positions extends AppCompatActivity {
     Button btnCreatePositionAdd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_position);
+        setContentView(R.layout.activity_positions);
         btnCreatePositionAdd = (Button) findViewById(R.id.CreatePositionAddButton);
         btnCreatePositionAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CreatePosition.this,AddPosition.class));
+                startActivity(new Intent(Positions.this,AddPosition.class));
             }
         });
     }

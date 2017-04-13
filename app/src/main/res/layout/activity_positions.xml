@@ -8,15 +8,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.logan.test2.CreatePosition">
+    tools:context="com.example.logan.test2.Positions">
 
     <TextView
-        android:text="Current Positions"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:text="Positions"
         android:textSize="24sp" />
 
     <ListView
