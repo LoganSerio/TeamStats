@@ -21,8 +21,9 @@
         <activity android:name=".TeamCreation" />
         <activity
             android:name=".CreateTeamPopUp"
-            android:theme="@style/AppTheme.myTheme"></activity>
-        <activity android:name=".CreatePosition"></activity>
+            android:theme="@style/AppTheme.myTheme" />
+        <activity android:name=".CreatePosition" />
+        <activity android:name=".AddPosition"></activity>
     </application>
 
 </manifest>
