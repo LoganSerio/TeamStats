@@ -20,9 +20,9 @@
         android:textAllCaps="false"
         android:background="@android:color/white"
         android:textSize="24sp"
+        android:hint="@string/tfEnterTeamName"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/tfEnterTeamName" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:text="@string/cancelTeamCreateButton"

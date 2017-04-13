@@ -1,11 +1,13 @@
 package com.example.logan.test2;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -33,8 +35,14 @@ public class CreateTeamPopUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 etTeamName = (EditText) findViewById(R.id.EnterTeamNameEditText);
-                Intent myIntent = new Intent(CreateTeamPopUp.this,Positions.class);
-                startActivity(myIntent);
+                if(TextUtils.isEmpty(etTeamName.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Must enter team name",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent myIntent = new Intent(CreateTeamPopUp.this, Positions.class);
+                    startActivity(myIntent);
+                }
+
             }
         });
     }
