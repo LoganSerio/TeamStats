@@ -39,7 +39,7 @@ public class CreateTeamPopUp extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Must enter team name",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Intent myIntent = new Intent(CreateTeamPopUp.this, Positions.class);
+                    Intent myIntent = new Intent(CreateTeamPopUp.this, AddPosition.class);
                     startActivity(myIntent);
                 }
 
