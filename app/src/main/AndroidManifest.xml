@@ -25,7 +25,9 @@
         <activity android:name=".AddPosition" />
         <activity android:name=".PositionStats" />
         <activity android:name=".ListPositions" />
-        <activity android:name=".EditPositions"></activity>
+        <activity android:name=".EditPositions" />
+        <activity android:name=".TeamPage"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

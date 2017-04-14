@@ -27,7 +27,7 @@ public class Settings extends AppCompatActivity {
         btnUserManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(Settings.this,TeamPage.class));
             }
         });
     }
