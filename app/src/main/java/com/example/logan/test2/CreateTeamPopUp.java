@@ -13,11 +13,18 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * A class that creates the activity for Creating a team
+ */
 public class CreateTeamPopUp extends AppCompatActivity {
     Button btnCloseTeamPopUp;
     Button btnCreateTeamPopUp;
     EditText etTeamName;
 
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
