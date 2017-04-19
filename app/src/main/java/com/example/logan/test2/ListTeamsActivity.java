@@ -8,15 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ListTeamsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, View.OnClickListener {
+public class ListTeamsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     public static final String TAG = "ListTeamsActivity";
 
     public static final int REQUEST_CODE_ADD_TEAM = 40;
@@ -24,7 +24,6 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
 
     private ListView mListviewTeams;
     private TextView mTxtEmptyListTeams;
-    private ImageButton mBtnAddTeam;
 
     private ListTeamsAdapter mAdapter;
     private List<Team> mListTeams;
@@ -52,23 +51,8 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     private void initViews() {
         this.mListviewTeams = (ListView) findViewById(R.id.list_teams);
         this.mTxtEmptyListTeams = (TextView) findViewById(R.id.txt_empty_list_teams);
-        this.mBtnAddTeam = (ImageButton) findViewById(R.id.btn_add_team);
         this.mListviewTeams.setOnItemClickListener(this);
         this.mListviewTeams.setOnItemLongClickListener(this);
-        this.mBtnAddTeam.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_add_team:
-                Intent intent = new Intent(this, CreateTeamPopUp.class);
-                startActivityForResult(intent, REQUEST_CODE_ADD_TEAM);
-                break;
-
-            default:
-                break;
-        }
     }
 
     @Override
