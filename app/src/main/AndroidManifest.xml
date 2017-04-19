@@ -19,15 +19,17 @@
         <activity android:name=".Settings" />
         <activity android:name=".SendFeedback" />
         <activity android:name=".TeamCreation" />
+        <activity android:name=".AddPositionActivity" />
+        <activity android:name=".ListPositionsActivity" />
+        <activity android:name=".ListTeamsActivity" />
         <activity
             android:name=".CreateTeamPopUp"
             android:theme="@style/AppTheme.myTheme" />
-        <activity android:name=".AddPosition" />
         <activity android:name=".PositionStats" />
-        <activity android:name=".ListPositions" />
-        <activity android:name=".EditPositions" />
-        <activity android:name=".TeamPage"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".TeamPage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".TeamPositions"></activity>
     </application>
 
 </manifest>

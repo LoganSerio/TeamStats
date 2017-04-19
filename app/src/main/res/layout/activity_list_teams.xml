@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.logan.test2.ListPositionsActivity" >
+    tools:context="com.lo" >
 
     <TextView
         android:id="@+id/txt_header"
@@ -11,12 +11,12 @@
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:text="All Positions"
+        android:text="All Teams"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/white" />
 
     <ImageButton
-        android:id="@+id/btn_add_position"
+        android:id="@+id/btn_add_team"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -28,19 +28,19 @@
         android:src="@android:drawable/ic_menu_add" />
 
     <TextView
-        android:id="@+id/txt_empty_list_positions"
+        android:id="@+id/txt_empty_list_teams"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="4dp"
         android:gravity="center"
-        android:text="No positions created for this team. Add a new one by clicking the add button"
+        android:text="No teams in the database create new one by clicking the add button at the top right"
         android:textAppearance="?android:attr/textAppearance"
         android:textColor="@android:color/darker_gray"
         android:visibility="gone" />
 
     <ListView
-        android:id="@+id/list_positions"
+        android:id="@+id/list_teams"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/txt_header"

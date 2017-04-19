@@ -3,67 +3,73 @@ package com.example.logan.test2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 /**
  * A class that creates the activity for Creating a team
  */
-public class CreateTeamPopUp extends AppCompatActivity {
-    Button btnCloseTeamPopUp;
-    Button btnCreateTeamPopUp;
-    EditText etTeamName;
+public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = "CreateTeamPopUp";
 
-    /**
-     * Initializes the activity and displays it on the device's screen
-     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
-     */
+    private EditText mTxtTeamName;
+    private Button mBtnAdd;
+
+    private TeamDAO mTeamDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_team_pop_up);
 
-        btnCloseTeamPopUp =(Button)findViewById(R.id.cancelTeamCreateButton);
-        btnCreateTeamPopUp = (Button)findViewById(R.id.teamCreatePopUpButton);
-        btnCloseTeamPopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        btnCreateTeamPopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                etTeamName = (EditText) findViewById(R.id.EnterTeamNameEditText);
-                if(TextUtils.isEmpty(etTeamName.getText().toString())){
-                    Toast.makeText(getApplicationContext(),"Must enter team name",Toast.LENGTH_SHORT).show();
+        initViews();
+
+        this.mTeamDao = new TeamDAO(this);
+    }
+
+    private void initViews() {
+        this.mTxtTeamName = (EditText) findViewById(R.id.txt_team_name);
+        this.mBtnAdd = (Button) findViewById(R.id.btn_add);
+
+        this.mBtnAdd.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_add:
+                Editable teamName = mTxtTeamName.getText();
+                if (!TextUtils.isEmpty(teamName)) {
+                    // add the company to database
+                    Team createdTeam = mTeamDao.createTeam(teamName.toString());
+                    Log.d(TAG, "added team : "+ createdTeam.getName());
+                    Intent intent = new Intent(CreateTeamPopUp.this,TeamPositions.class);
+                    intent.putExtra("Team", createdTeam);
+                    startActivity(intent);
+
+                    //setResult(RESULT_OK, intent);
+                    //finish();
                 }
                 else {
-                    Intent myIntent = new Intent(CreateTeamPopUp.this, AddPosition.class);
-                    startActivity(myIntent);
+                    Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
                 }
+                break;
 
-            }
-        });
-    }
-    public void writeData(View view) {
-        String teamName = etTeamName.getText().toString();
-        String fileName = new String (teamName);
-        try {
-            FileOutputStream fileOS = openFileOutput(fileName,MODE_PRIVATE);
-            fileOS.write(teamName.getBytes());
-            fileOS.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            default:
+                break;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mTeamDao.close();
     }
 }

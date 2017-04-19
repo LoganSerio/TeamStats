@@ -37,4 +37,6 @@
     <string name="title_activity_team_page">TeamPage</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <!-- Send Feedback End -->
+    <string name="select_a_team">Select A Team</string>
+
 </resources>
