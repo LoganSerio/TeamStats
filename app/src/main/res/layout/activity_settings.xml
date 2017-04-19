@@ -20,12 +20,23 @@
         android:id="@+id/sendFeedbackButton" />
 
     <Button
-        android:text="@string/reorderTeamsButton"
+        android:id="@+id/reorderTeamsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sendFeedbackButton"
         android:layout_alignLeft="@+id/sendFeedbackButton"
         android:layout_alignStart="@+id/sendFeedbackButton"
+        android:layout_below="@+id/sendFeedbackButton"
         android:layout_marginTop="30dp"
-        android:id="@+id/reorderTeamsButton" />
+        android:text="User Manual"
+        android:layout_alignRight="@+id/sendFeedbackButton"
+        android:layout_alignEnd="@+id/sendFeedbackButton" />
+
+    <Button
+        android:id="@+id/btnTempTeamPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reorderTeamsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="Temp Team Page" />
 </RelativeLayout>
