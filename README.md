@@ -1,6 +1,6 @@
 User Document
 
-1 Introduction
+#1 Introduction
 1.1 Overview
 Team Stats is an app designed for sports teams who wish to input data for the team and its players. Team stats allows you to choose from various sports templates, or create your own sport, allowing for the user to have full customizable control over the statistics they choose to store. Whether you are an organized collegiate, high school, intramural, or pick-up team, Team Stats provides a platform for you to quickly and easily input, save, and retrieve the data you need to understand your team better.
 1.2 System Requirements
