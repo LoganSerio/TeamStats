@@ -1,6 +1,6 @@
 User Document
 
-#1 Introduction
+# 1 Introduction
 1.1 Overview
 Team Stats is an app designed for sports teams who wish to input data for the team and its players. Team stats allows you to choose from various sports templates, or create your own sport, allowing for the user to have full customizable control over the statistics they choose to store. Whether you are an organized collegiate, high school, intramural, or pick-up team, Team Stats provides a platform for you to quickly and easily input, save, and retrieve the data you need to understand your team better.
 1.2 System Requirements
@@ -64,17 +64,17 @@ The existing teams page provides a list of teams that were previously created by
 
 3.6 Specific Team Page
 From the Specific Team Page, the user can see the stats and roster of the team. The user also has the option to select one of three buttons: Share, Edit, and Delete.
-    3.6.1 Team Overview Tab
+3.6.1 Team Overview Tab
 
-    3.6.2 Team Options Tab
+3.6.2 Team Options Tab
 
-        3.6.2a Edit Players Button
+3.6.2a Edit Players Button
 
-        3.6.2b Edit Position
+3.6.2b Edit Position
 
-        3.6.2c Edit Statistics Button
+3.6.2c Edit Statistics Button
 
-        3.6.2d Delete Button
-            If the user presses the “Delete” button, a window will pop up saying “You are about to delete this team. Deleting a team will erase all information about this team forever. Are you sure you want to continue?” Below the message the user is given the options “Yes” or “No.” If the user selects “Yes” the specified team will be deleted. If the User selects “No” the pop up window will disappear and the user will remain on the Specific Team Page.
-            *Disclaimer: Deleting a team is permanent and information about the deleted team cannot be recovered*
+3.6.2d Delete Button
+If the user presses the “Delete” button, a window will pop up saying “You are about to delete this team. Deleting a team will erase all information about this team forever. Are you sure you want to continue?” Below the message the user is given the options “Yes” or “No.” If the user selects “Yes” the specified team will be deleted. If the User selects “No” the pop up window will disappear and the user will remain on the Specific Team Page.
+   *Disclaimer: Deleting a team is permanent and information about the deleted team cannot be recovered*
 
