@@ -6,10 +6,14 @@
 Team Stats is an app designed for sports teams who wish to input data for the team and its players. Team stats allows you to choose from various sports templates, or create your own sport, allowing for the user to have full customizable control over the statistics they choose to store. Whether you are an organized collegiate, high school, intramural, or pick-up team, Team Stats provides a platform for you to quickly and easily input, save, and retrieve the data you need to understand your team better.
 # System Requirements
 The system minimum requirements include:
+
 • *** or faster processor
+
 • *** or more RAM
+
 • At least *** free hard disk space
-• Android *** Operating System or newer
+
+• Android ** Operating System or newer
 
 # Points of Contact
 If the user has any complaints, feedback, or concerns regarding Team Stats or the development team, email TeamStatsFeedback@gmail.com and our team will respond as quick as possible. You can easily do this by clicking the settings button on the homepage (more detail on this process below). Additionally, users may also leave feedback on Team Stats’ Google Play Store page and our team will try to respond to most of the feedback.
