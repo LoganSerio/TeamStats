@@ -12,7 +12,6 @@ import android.widget.Button;
 /**
  * The page that deals with a users ability to update a team.
  */
-
 public class TeamOptions extends Fragment{
 
     Button btnEditPositions;
