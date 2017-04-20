@@ -1,50 +1,96 @@
 # Summary:
-Team Stats is a solution for club sports teams, no matter their sport’s obscurity, to collect statistics on their players and team by providing them a mobile application to input and view important data for their respective sport. 
-Our target clients are collegiate club sports teams who participate in any club sport who do not already have an easy method to collect statistics. Other possible clients include high school teams, intramural teams, and any other athletic group who participates in semi-competitive leagues.
-Club sports teams are experiencing large growth in colleges across the United States that do not have NCAA approved teams, but have students who desire to participate in their sport with others. We plan on reaching out to teams of more non-traditional sports that do not have the proper tools to effectively store statistics.
-While there are apps the specialize in collecting sports statistics, there is no app all in one app that provides teams of all sports a platform to store their data. 
-Our application will address these pain points that will allow teams a place to store all of their data, no matter their sport. If we do not have a template already prepared for your team, we will give your team the option of creating your own template for your team’s specific needs. No other app that we have found provides this to its customers. 
-We will be developing our application for the Google Play Store using Android Development Studio and if time allows, also the Apple App store.
+Team Stats is a solution for club sports teams, no matter their sport’s obscurity, to collect statistics on their players and team 
+by providing them a mobile application to input and view important data for their respective sport. Our target clients are collegiate 
+club sports teams who participate in any club sport who do not already have an easy method to collect statistics. Other possible clients
+include high school teams, intramural teams, and any other athletic group who participates in semi-competitive leagues.
+Club sports teams are experiencing large growth in colleges across the United States that do not have NCAA approved teams, but have 
+students who desire to participate in their sport with others. We plan on reaching out to teams of more non-traditional sports that do 
+not have the proper tools to effectively store statistics. While there are apps the specialize in collecting sports statistics, there is 
+no app all in one app that provides teams of all sports a platform to store their data. Our application will address these pain 
+points that will allow teams a place to store all of their data, no matter their sport. If we do not have a template already prepared 
+for your team, we will give your team the option of creating your own template for your team’s specific needs. No other app that we have found provides this to its customers. 
+We will be developing our application for the Google Play Store using Android Development Studio and if time allows, also the Apple App 
+store.
 
 # Value Proposition: 
-Our vision is to create an all in one app that caters to all of team’s statistical needs. It doesn’t matter if they play a club sport, collegiate sport, high school sport, or even participate in a recreational league, we would like to supply them with the tools to collect and record their stats, no matter the sport. We want our app to be full of customization options which allows for teams to keep the positional statistics for the sports they care about. Customers want to decide the statistics they collect, and we want to provide them with a solution that is easy to use.
+Our vision is to create an all in one app that caters to all of team’s statistical needs. It doesn’t matter if they play a club sport, 
+collegiate sport, high school sport, or even participate in a recreational league, we would like to supply them with the tools to 
+collect and record their stats, no matter the sport. We want our app to be full of customization options which allows for teams to keep
+the positional statistics for the sports they care about. Customers want to decide the statistics they collect, and we want to provide 
+them with a solution that is easy to use.
 
 # Customer Pain Point:
-We want to be the first in a market that does not yet completely exist. Consumer’s want customization, control, and simplicity in their collection of statistics broken down by category for their team, and no app on the market yet does these things. This positional system gives a greater number of options to the users since THEY get to choose what THEY care about. We will provide solutions that allow our customers to collect exactly what data they want to collect and will provide a simplistic solution that makes entering and viewing their data pain free, while keeping their cost low. 
+We want to be the first in a market that does not yet completely exist. Consumer’s want customization, control, and simplicity in their 
+collection of statistics broken down by category for their team, and no app on the market yet does these things. This positional system 
+gives a greater number of options to the users since THEY get to choose what THEY care about. We will provide solutions that allow our
+customers to collect exactly what data they want to collect and will provide a simplistic solution that makes entering and viewing their
+data pain free, while keeping their cost low. 
 
 # Customer Segments:
 # Primary Market: 
 # Club Sports (Collegiate) and High School Teams
-Our main concentration would be on very organized teams that have a want or already do record their team’s and player’s statistics such as collegiate club sports and high school sports teams. These teams would support our product because right now there is no quality solution to collecting customized data, and we will provide them that. 
+Our main concentration would be on very organized teams that have a want or already do record their team’s and player’s statistics such 
+as collegiate club sports and high school sports teams. These teams would support our product because right now there is no quality 
+solution to collecting customized data, and we will provide them that. 
 The United States would be our primary location since the participation in club and high school sports is so high. 
 # Market size: 
-According to the New York Times, an estimated two million college students play competitive club sports compared to the 430,000 involved in sports affiliated with the NCAA and the NAIA. Along with the large number of students involved in club sports, high school sports, recreational leagues, and intramurals continually tends to have a large amount of participation across the United States. This shows that the market is large even if not every team records statistics.
+According to the New York Times, an estimated two million college students play competitive club sports compared to the 430,000 involved
+in sports affiliated with the NCAA and the NAIA. Along with the large number of students involved in club sports, high school sports, 
+recreational leagues, and intramurals continually tends to have a large amount of participation across the United States. This shows 
+that the market is large even if not every team records statistics.
 # Secondary market: 
 Intramural Sports and Recreational Leagues 
-Our secondary market would be those teams that could at some point want to keep track of their statistics such as intramural sports and recreational leagues. These tend to be, but not always, less organized and focused on having fun. Many teams, will still find use for our product as they work towards understanding their team dynamic better through data.
-
+Our secondary market would be those teams that could at some point want to keep track of their statistics such as intramural sports and
+recreational leagues. These tend to be, but not always, less organized and focused on having fun. Many teams, will still find use for 
+our product as they work towards understanding their team dynamic better through data.
 # Channels: 
-Our main channel of delivering the application will be the Google Play Store. The Android OS dominates the smartphone market share, so we believe it is important to start where the most people are. Furthermore, Google provides many resources for new developers, and it is significantly cheaper to put an app on the Google Play Store.
-After doing some research on the Google Play store, Apple App store, and online, we found that there is no app focused on club sports, only more mainstream sports such as football, basketball, baseball, and soccer. With our app, we want players of any sport to be able to record and track their team’s statistics.
+Our main channel of delivering the application will be the Google Play Store. The Android OS dominates the smartphone market share, so 
+we believe it is important to start where the most people are. Furthermore, Google provides many resources for new developers, and it 
+is significantly cheaper to put an app on the Google Play Store.After doing some research on the Google Play store, Apple App store, 
+and online, we found that there is no app focused on club sports, only more mainstream sports such as football, basketball, baseball,
+and soccer. With our app, we want players of any sport to be able to record and track their team’s statistics.
 # Customer Relationships: 
-By being the first to build an app like ours, we have the benefit of being able to establish brand loyalty early on. We will get customers from marketing, word-of-mouth, and collaboration will various sports teams across the nation. Our product will speak for itself, and we know that once we get it in customer’s hands, they will keep coming back. Our team will be focused early on reading customer feedback and pushing updates through the Google Play Store to address any issues that customers face. Through our surveys, we found that our target audience is interested in communicating with us via email and social media, so we will have dedicated accounts for customer support and feedback on all platforms. The most direct way to offer concerns, criticism, or suggestions is through teamstatsfeedback@gmail.com. The developers are sure to quickly to respond to your feedback since we know that it is our customers that make the app great.
+By being the first to build an app like ours, we have the benefit of being able to establish brand loyalty early on. We will get customers
+from marketing, word-of-mouth, and collaboration will various sports teams across the nation. Our product will speak for itself, and we 
+know that once we get it in customer’s hands, they will keep coming back. Our team will be focused early on reading customer feedback
+and pushing updates through the Google Play Store to address any issues that customers face. Through our surveys, we found that our 
+target audience is interested in communicating with us via email and social media, so we will have dedicated accounts for customer 
+support and feedback on all platforms. The most direct way to offer concerns, criticism, or suggestions is through 
+teamstatsfeedback@gmail.com. The developers are sure to quickly to respond to your feedback since we know that it is our customers that
+make the app great.
 # Revenue Streams:
-Our survey indicates that customers are most interested in a free app with in app advertisements, so that will initially be our primary method of collecting money. If our customer base and brand loyalty grow as high as we expect, we will consider implementing premium features for a monthly subscription in the future. 
+Our survey indicates that customers are most interested in a free app with in app advertisements, so that will initially be our primary 
+method of collecting money. If our customer base and brand loyalty grow as high as we expect, we will consider implementing premium 
+features for a monthly subscription in the future. 
 # Key Resources:
-Our key resources lie within our team. Many of us have participated in some form of organized sports, and we have experienced the problem we are trying to address. Having experienced these products, we have insights on what our customers will want. Furthermore, we all have the drive, passion, and intellect necessary to build a successful product.  Key development resources for this project are Android Studio and GitHub.
+Our key resources lie within our team. Many of us have participated in some form of organized sports, and we have experienced the problem
+we are trying to address. Having experienced these products, we have insights on what our customers will want. Furthermore, we all have
+the drive, passion, and intellect necessary to build a successful product.  Key development resources for this project are Android Studio
+and GitHub.
 # Key Partners:
-We have already collaborated the LSU Ultimate Frisbee Club, LSU Soccer Club, and LSU Tennis Club, and they have all been enthusiastic and interested in the project. They will be critical contacts when we need ideas or suggestions on how they would like to see certain features implemented. Furthermore Dr. Supratik Mukhopadhyay will be a valuable resource in helping us understand the software development process and will aid us in our implementation. 
+We have already collaborated the LSU Ultimate Frisbee Club, LSU Soccer Club, and LSU Tennis Club, and they have all been enthusiastic 
+and interested in the project. They will be critical contacts when we need ideas or suggestions on how they would like to see certain 
+features implemented. Furthermore Dr. Supratik Mukhopadhyay will be a valuable resource in helping us understand the software
+development process and will aid us in our implementation. 
 # Key Activities:
-The most important part in ensuring a successful outcome is to make sure we stay focused, dedicated, and ahead of the development process. Once our product launches, we must have a focus on our customers and their feedback. It is necessary that we respond to problems quickly to ensure users have a positive experience and want to continue using our app. 
+The most important part in ensuring a successful outcome is to make sure we stay focused, dedicated, and ahead of the development process.
+Once our product launches, we must have a focus on our customers and their feedback. It is necessary that we respond to problems quickly
+to ensure users have a positive experience and want to continue using our app. 
 # Cost Structure:
-Launching an app on the Google Play Store has a one-time fee of $25. Our only other expected expense is the time invested in creating the application. As mentioned in the “Revenue Streams” section, we plan on having in app advertisements and eventually moving to a model with a free version and a premium version where customers pay a monthly fee for extra features. 
-
-
+Launching an app on the Google Play Store has a one-time fee of $25. Our only other expected expense is the time invested in creating
+the application. As mentioned in the “Revenue Streams” section, we plan on having in app advertisements and eventually moving to a model
+with a free version and a premium version where customers pay a monthly fee for extra features. 
 # How we will accomplish this:
-•	Marketing and distribution strategy: Marketing and distribution will be crucial in developing successful software, as functional software with no users is not useful. Our marketing strategy will develop in phases. First, we will focus on college campuses, reaching out to club sports teams across the country to let them know what our app provides and allowing them to use the software for free. Then, we will broaden our advertising through online platforms like Google Adsense to target young adults who participate in sports and recreational leagues. From there, we expect our app to roll out through word of mouth and continued advertisement. 
-•	Developing strategy: Our application will be developed in phases using Android Development Studio. We have found that the Android Platform is a good place for young developers such as ourselves. A future goal, beyond this class, is to develop the app for IOS compatibility, but due to the time constraint, we expect that phase to be after May 2017. 
-•	Management: All four team members will serve an equal role in the development of our app, and all members will have equal say and contribution in the process. 
-
+•	Marketing and distribution strategy: Marketing and distribution will be crucial in developing successful software, as functional
+software with no users is not useful. Our marketing strategy will develop in phases. First, we will focus on college campuses, reaching 
+out to club sports teams across the country to let them know what our app provides and allowing them to use the software for free. Then,
+we will broaden our advertising through online platforms like Google Adsense to target young adults who participate in sports and 
+recreational leagues. From there, we expect our app to roll out through word of mouth and continued advertisement. 
+•	Developing strategy: Our application will be developed in phases using Android Development Studio. We have found that the Android 
+Platform is a good place for young developers such as ourselves. A future goal, beyond this class, is to develop the app for IOS 
+compatibility, but due to the time constraint, we expect that phase to be after May 2017. 
+•	Management: All four team members will serve an equal role in the development of our app, and all members will have equal say and 
+contribution in the process. 
 # Barriers:
 We will be facing a few barriers with this application:
 •	Finishing on time
@@ -53,12 +99,17 @@ We will be facing a few barriers with this application:
 •	No pre-existing customer base. 
 
 # Critical risks:
-Conglomerates: ESPN, Yahoo, companies with large customer bases focused on sports could potentially see our app, take our idea, and use their enormous amounts of resources to build a similar app and market it to their pre-existing customer base.
+Conglomerates: ESPN, Yahoo, companies with large customer bases focused on sports could potentially see our app, take our idea, and use 
+their enormous amounts of resources to build a similar app and market it to their pre-existing customer base.
 # Competition:        
-There are not many applications in this market as of now. There are various apps that focus on one sport exclusively. With our app, players would be able to keep any stats they wanted on any sport they played. The idea is to have plenty of customization options to where teams could record and track the statistics they saw fit. We don’t want to force our users to keep stats they don’t find useful for their team.
+There are not many applications in this market as of now. There are various apps that focus on one sport exclusively. With our app, 
+players would be able to keep any stats they wanted on any sport they played. The idea is to have plenty of customization options to 
+where teams could record and track the statistics they saw fit. We don’t want to force our users to keep stats they don’t find useful
+for their team.
 •	Sports Stats Recorder: A Google Play Store Application that records scores and stats for team sports
 o	Sports: Gaelic Football, Hurling, Rugby Union, Rugby League, Soccer, Australian Rules Football and Field Hockey
-o	Features: Keep game time and record team scores, record the individual scorers in a game, create your own custom stats to record, record a time log of every activity in the game, save team details and output data to files
+o	Features: Keep game time and record team scores, record the individual scorers in a game, create your own custom stats to record, 
+record a time log of every activity in the game, save team details and output data to files
 o	Last Updated: May 18, 2013
 o	Cost: Free
 •	A series of apps by Verosocial Studio on the Apple App Store that records game and player stats
@@ -70,37 +121,52 @@ o	Cost: $0.99 - $1.99
 * Only focus on one sport, not a wide variety of sports, haven’t been updated in a while (years), must be bought, poor user interface, etc. 
 
 # Competitive Advantages:
-One of our biggest competitive advantages is that we plan on offering more customization options than any of the other applications in our market. We will be offering a large amount of customization to allow our users to track and record any statistics they want, not what we tell them too. Another advantage is that we are open to receiving feedback from our users to continuously improve our application’s ability to suit their needs. A competitive analysis has shown that our competition has been inactive in updating their app for an extended period of time and as such lets us to set ourselves apart by responding to the user base. Lastly, our low development costs permits us to launch the app for free and as such make it as easy as possible for potential customers to give the app a try without having a cost barrier.
+One of our biggest competitive advantages is that we plan on offering more customization options than any of the other applications in
+our market. We will be offering a large amount of customization to allow our users to track and record any statistics they want, not 
+what we tell them too. Another advantage is that we are open to receiving feedback from our users to continuously improve our 
+application’s ability to suit their needs. A competitive analysis has shown that our competition has been inactive in updating their
+app for an extended period of time and as such lets us to set ourselves apart by responding to the user base. Lastly, our low 
+development costs permits us to launch the app for free and as such make it as easy as possible for potential customers to give the app 
+a try without having a cost barrier.
+
 # Customer Survey Results:
-We surveyed ten players from club and intramural teams at LSU. Questions 1 through 3 only allowed one choice. Questions 3 and 4 allowed for multiple choices. Question 5 was an optional short answer.
+We surveyed ten players from club and intramural teams at LSU. Questions 1 through 3 only allowed one choice. Questions 3 and 4 
+allowed for multiple choices. Question 5 was an optional short answer.
 1.	Which of these would you prefer:
 a.	A free app with in app advertisements.
 b.	A one-time fee.
 c.	A free version and a paid version of the app.
 d.	A monthly subscription service
 100 % of respondents chose a free app with in app advertisements. 
+
 2.	Does your team already use an app collect statistics? If yes, what app? If no, how do you collect your stats?
 4 respondents said they write them on paper. 
 2 respondents said Ultianilytics
 1 respondent said “Yes, but I don’t know its name.”
 2 respondents said they use Sports Stats Trackers’ soccer app.
 1 respondent said no.
+
 3.	Check the box for which sports should we have templates for.
 a.	Soccer	(7 respondents)
 b.	Football	(5 respondents)
 c.	Ultimate 	(6 respondents)
 d.	Tennis	(6 respondents)
 e.	Other		(4 respondents)
+
 4.	What are the best ways for us to reach out to you/you to reach out to us?
 a.	Email		(8 respondents)
 b.	Twitter	(3 respondents)
 c.	Facebook	(0 respondents)
 d.	Instagram	(1 respondent)
 e.	Other		(1 respondent)
+
 5.	Are there any key features you would like to see in our app?
 Respondent 1: “Saved stats, ability to post to social media, compare stats between games.”
-Respondent 2: “A season collection of the apps, also a way to put in stats and keep them in separate tabs specifically for tournaments and or different types of games.”
+Respondent 2: “A season collection of the apps, also a way to put in stats and keep them in separate tabs specifically for tournaments
+and or different types of games.”
 Respondent 3: “Just ease of use and individual performance.”
 Respondent 4: “Custom options where we can make our own categories such as who shows up to practice and what not”
-Respondent 5: “Ability to add stats and make your own sport. More customizable for stat tracking. Ability to save games, and add all the stats of games together for one big stat showing “
-Respondent 6: “Perhaps an app that keeps track of scores past as well - not just on a current season basis. I.e. Someone can select fall 2018 season during the spring of 2019 (for example to check on who scored a goal in a certain game etc etc)”
+Respondent 5: “Ability to add stats and make your own sport. More customizable for stat tracking. Ability to save games, and add all 
+the stats of games together for one big stat showing “
+Respondent 6: “Perhaps an app that keeps track of scores past as well - not just on a current season basis. I.e. Someone can select fall 2018 season during the spring of 2019 (for example to check 
+on who scored a goal in a certain game etc etc)”
