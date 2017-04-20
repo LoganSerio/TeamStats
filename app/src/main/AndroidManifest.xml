@@ -29,7 +29,6 @@
         <activity
             android:name=".TeamPage"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TeamPositions"></activity>
     </application>
 
 </manifest>

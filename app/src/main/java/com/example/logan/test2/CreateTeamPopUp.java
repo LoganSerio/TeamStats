@@ -50,7 +50,7 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
                     // add the company to database
                     Team createdTeam = mTeamDao.createTeam(teamName.toString());
                     Log.d(TAG, "added team : "+ createdTeam.getName());
-                    Intent intent = new Intent(CreateTeamPopUp.this,TeamPositions.class);
+                    Intent intent = new Intent(CreateTeamPopUp.this,ListPositionsActivity.class);
                     intent.putExtra("Team", createdTeam);
                     startActivity(intent);
 

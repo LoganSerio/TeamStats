@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class AddPositionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,22 +30,21 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_position);
-
-        initViews();
-
+    /*
         mBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(AddPositionActivity.this, ListPositionsActivity.class));
             }
         });
-
+    */
         this.mTeamDao = new TeamDAO(this);
         this.mPositionDao = new PositionDAO(this);
 
         team = (Team) getIntent().getSerializableExtra("Team");
-
+        teamID = team.getId();
         ArrayList<Position> listPositions = new ArrayList<>(mPositionDao.getAllPositions());
+        initViews();
         //BaseAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listPositions);
 
         //mListAdapter = new Arra(this, android.R.layout.simple_list_item_1, listPositions);
@@ -74,12 +74,14 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
                 //mSelectedTeam = (Team) mSpinnerTeam.getSelectedItem();
                 if (!TextUtils.isEmpty(positionName)) {
                     // add the team to database
-                    teamID = team.getId();
                     Position createdPosition = mPositionDao.createPosition(positionName.toString(), teamID);
-
                     Log.d(TAG, "added position : " + createdPosition.getPositionName());
                     setResult(RESULT_OK);
                     finish();
+
+                    Intent intent = new Intent(AddPositionActivity.this,ListPositionsActivity.class);
+                    intent.putExtra("Team",team);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
                 }

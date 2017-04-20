@@ -9,11 +9,12 @@
         android:id="@+id/txt_header"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:gravity="center"
         android:text="All Positions"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     <ImageButton
         android:id="@+id/btn_add_position"

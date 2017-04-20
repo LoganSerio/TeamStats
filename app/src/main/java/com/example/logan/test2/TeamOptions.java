@@ -2,18 +2,12 @@ package com.example.logan.test2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.Button;
-import android.content.Intent;
-import android.widget.Switch;
 
-/**
- * Created by Matt on 4/13/2017.
- */
 
 public class TeamOptions extends Fragment{
 
@@ -33,7 +27,7 @@ public class TeamOptions extends Fragment{
         btnEditPositions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TeamOptions.this.getActivity(),TeamPositions.class));
+                startActivity(new Intent(TeamOptions.this.getActivity(),ListPositionsActivity.class));
             }
         });
 
