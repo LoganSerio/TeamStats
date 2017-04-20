@@ -7,11 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * The Settings class that contains the option to open the user manual and the send feedback page.
+ */
 public class Settings extends AppCompatActivity {
     Button btnSendFeedback;
     Button btnUserManual;
     Button btnTempTeamPage;
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);

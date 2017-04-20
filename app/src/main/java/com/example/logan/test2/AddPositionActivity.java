@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 import java.util.ArrayList;
 
+/**
+ * A class that allows for the adding of position to a team.
+ */
 public class AddPositionActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "AddPositionActivity";
@@ -26,6 +29,10 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     long teamID;
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_position);
@@ -58,6 +65,9 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
         }*/
     }
 
+    /**
+     * Initializes components on the activity page.
+     */
     private void initViews() {
         this.mTxtPositionName = (EditText) findViewById(R.id.txt_position_name);
         //this.mSpinnerTeam = (Spinner) findViewById(R.id.spinner_teams);
@@ -67,6 +77,9 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
+    /**
+     * Tells the button what to do in the event of a click.
+     */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
@@ -91,6 +104,9 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
+    /**
+     * Closes the database.
+     */
     protected void onDestroy() {
         super.onDestroy();
         mTeamDao.close();

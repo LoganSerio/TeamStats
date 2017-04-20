@@ -9,26 +9,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 
+/**
+ * Opens up the team creation page.
+ */
 public class TeamCreation extends AppCompatActivity {
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_creation);
-    }
-    public void writeData(View view) {
-
-    }
-    public void readData(View view) {
-        try {
-            FileInputStream fileIS = openFileInput("Hello");
-            InputStreamReader inputSR = new InputStreamReader(fileIS);
-            BufferedReader br = new BufferedReader(inputSR);
-            StringBuffer stringBuffer = new StringBuffer();
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }

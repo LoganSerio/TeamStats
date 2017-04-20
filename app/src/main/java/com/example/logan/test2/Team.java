@@ -2,7 +2,9 @@ package com.example.logan.test2;
 
 import java.io.Serializable;
 
-
+/**
+ * A class to create team objects.
+ */
 class Team implements Serializable{
     public static final String TAG = "Position";
     private static final long serialVersionUID = -7406082437623008161L;

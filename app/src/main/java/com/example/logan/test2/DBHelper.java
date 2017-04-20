@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 
-
+/**
+ * Creates a helper class for connecting to the database.
+ */
 class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = "DBHelper";
 
@@ -43,12 +45,22 @@ class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(SQL_CREATE_TABLE_TEAMS);
         database.execSQL(SQL_CREATE_TABLE_POSITIONS);
     }
 
     @Override
+    /**
+     * Updates the database to a newer version.
+     * @param db The database
+     * @param oldVersion The old version of the database.
+     * @param newVersion The new version of the database.
+     */
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.w(TAG,
                 "Upgrading the database from version " + oldVersion + " to "+ newVersion);

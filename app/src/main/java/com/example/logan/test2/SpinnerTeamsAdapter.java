@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+
 public class SpinnerTeamsAdapter extends BaseAdapter {
 
     public static final String TAG = "SpinnerTeamsAdapter";

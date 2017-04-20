@@ -19,35 +19,26 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+/**
+ * A class that allows support for the team page.
+ */
 public class TeamPage extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
     private ViewPager mViewPager;
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_page);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -56,20 +47,24 @@ public class TeamPage extends AppCompatActivity {
     }
 
     @Override
+    /**
+     * Initializes the menu for the team page.
+     * @param menu The menu in which items are placed.
+     * @return returns true if the menu is displayed or false otherwise.
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_team_page, menu);
         return true;
     }
 
     @Override
+    /**
+     * A method that calls when a menu item has been selected.
+     * @item The MenuItem selected.
+     * @return returns false to continue browsing the menu or true in the event an option was chosen.
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -79,8 +74,7 @@ public class TeamPage extends AppCompatActivity {
 
 
     /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
+     * A class that returns a fragment corresponding to one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
@@ -89,6 +83,11 @@ public class TeamPage extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * A method that gets the fragment item.
+         * @param the position of the item
+         * @return a Fragment object
+         */
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
@@ -103,12 +102,20 @@ public class TeamPage extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * Gets the page count.
+         * @return Two total pages.
+         */
         public int getCount() {
-            // Show 2 total pages.
             return 2;
         }
 
         @Override
+        /**
+         * A method that gets the title of the page as either overview or options.
+         * @param position The position of the desired page title.
+         * @return returns a CharSequence of either "Team Overview" or "Team Options".
+         */
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:

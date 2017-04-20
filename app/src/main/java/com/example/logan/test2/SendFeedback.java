@@ -11,12 +11,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * A class that deals with the users ability to send feedback,
+ */
 public class SendFeedback extends AppCompatActivity {
 
     Button btnFeedbackSubmit;
     EditText etxtFeedbackSubject;
     EditText etxtFeedbackResponse;
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_feedback);

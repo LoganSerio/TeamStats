@@ -15,7 +15,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Lists all the teams that the user has created. The user can also hold down a team and then delete it that way.
+ */
 public class ListTeamsActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     public static final String TAG = "ListTeamsActivity";
 
@@ -30,6 +32,10 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     private TeamDAO mTeamDao;
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_teams);
@@ -48,6 +54,9 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         }
     }
 
+    /**
+     * Initializes the components of the class.
+     */
     private void initViews() {
         this.mListviewTeams = (ListView) findViewById(R.id.list_teams);
         this.mTxtEmptyListTeams = (TextView) findViewById(R.id.txt_empty_list_teams);
@@ -56,6 +65,12 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     }
 
     @Override
+    /**
+     * Calls when a user activity is terminated.
+     * @param requestCode The integer request code originally supplied that allows you to trace back where the response comes from.
+     * @param resultCode The integer result code returned by the child activity through its setResult().
+     * @param data An Intent, which can return result data to the caller
+     */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ADD_TEAM) {
             if (resultCode == RESULT_OK) {
@@ -87,12 +102,22 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     }
 
     @Override
+    /**
+     * Closes the database.
+     */
     protected void onDestroy() {
         super.onDestroy();
         mTeamDao.close();
     }
 
     @Override
+    /**
+     * Allows for the user to interact and select a team from the view.
+     * @param parent The AdapterView where the click happened.
+     * @param view The view within the AdapterView that was clicked (this will be a view provided by the adapter)
+     * @param position The position of the view in the adapter.
+     * @param id The row id of the item that was clicked.
+     * */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
@@ -102,6 +127,14 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     }
 
     @Override
+    /**
+     * In the event the user holds the team name down, the user has the option to delete the team.
+     * @param parent The AbsListView where the click happened.
+     * @param view The view within the AbsListView that was clicked.
+     * @param position The position of the view in the list.
+     * @param id The row id of the item that was clicked.
+     * @return returns true is the click was held or false otherwise.
+     */
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = mAdapter.getItem(position);
         Log.d(TAG, "longClickedItem : " + clickedTeam.getName());
@@ -109,6 +142,10 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         return true;
     }
 
+    /**
+     * Displays a message asking the user for confirmation if they wish to delete the team.
+     * @param clickedTeam The name of the deleted team.
+     */
     private void showDeleteDialogConfirmation(final Team clickedTeam) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 

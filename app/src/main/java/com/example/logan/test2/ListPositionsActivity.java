@@ -16,7 +16,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *
+ */
 public class ListPositionsActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener, View.OnClickListener {
 
     public static final String TAG = "ListPositionsActivity";
@@ -36,6 +38,10 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     private long mTeamId = -1;
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_positions);
@@ -64,6 +70,9 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
         }
     }
 
+    /**
+     * Initializes the variables for this class.
+     */
     private void initViews() {
         this.mListviewPositions = (ListView) findViewById(R.id.list_positions);
         this.mTxtEmptyListPositions = (TextView) findViewById(R.id.txt_empty_list_positions);
@@ -74,6 +83,9 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     }
 
     @Override
+    /**
+     * Provides the desired activity in the event of a button click.
+     */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add_position:
@@ -87,6 +99,9 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     }
 
     @Override
+    /**
+     *
+     */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == REQUEST_CODE_ADD_POSITION) {
             if(resultCode == RESULT_OK) {
@@ -117,12 +132,18 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     }
 
     @Override
+    /**
+     * Closes the database.
+     */
     protected void onDestroy() {
         super.onDestroy();
         mPositionDao.close();
     }
 
     @Override
+    /**
+     * When an item in the ListView
+     */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Position clickedPosition = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : "+clickedPosition.getPositionName());
