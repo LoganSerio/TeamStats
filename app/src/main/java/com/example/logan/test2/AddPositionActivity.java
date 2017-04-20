@@ -26,6 +26,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     Team team;
     long teamID;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
