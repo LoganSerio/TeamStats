@@ -30,6 +30,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     long teamID;
 
     
+    
     @Override
     /**
      * Initializes the activity and displays it on the device's screen
