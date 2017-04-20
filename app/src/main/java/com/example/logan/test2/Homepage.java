@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * A class that makes the homepage of the app along
+ * A class that makes the homepage of the app
  */
 public class Homepage extends AppCompatActivity {
     Button btnCreateNewTeam;

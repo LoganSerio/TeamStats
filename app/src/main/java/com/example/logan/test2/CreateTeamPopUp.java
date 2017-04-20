@@ -23,6 +23,10 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
     private TeamDAO mTeamDao;
 
     @Override
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_team_pop_up);
@@ -32,6 +36,9 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
         this.mTeamDao = new TeamDAO(this);
     }
 
+    /**
+     * Initializes components on the activity page.
+     */
     private void initViews() {
         this.mTxtTeamName = (EditText) findViewById(R.id.txt_team_name);
         this.mBtnAdd = (Button) findViewById(R.id.btn_add);
@@ -42,6 +49,9 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    /**
+     * Tells the button what to do in the event of a click.
+     */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
@@ -68,6 +78,9 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    /**
+     * Closes the database.
+     */
     protected void onDestroy() {
         super.onDestroy();
         mTeamDao.close();

@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
+/**
+ * The page that deals with a users ability to update a team.
+ */
+
 public class TeamOptions extends Fragment{
 
     Button btnEditPositions;
@@ -17,6 +21,13 @@ public class TeamOptions extends Fragment{
     Button btnDeleteTeam;
 
     @Override
+    /**
+     * Allows for user interactivity with the team options page.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment,
+     * @param container The container where the fragment UI is attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return an instance of View.
+     */
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_team_options, container, false);
         btnEditPositions = (Button) rootView.findViewById(R.id.editPositionButton);

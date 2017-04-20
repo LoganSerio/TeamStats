@@ -42,7 +42,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
         this.mPositionDao = new PositionDAO(this);
 
         team = (Team) getIntent().getSerializableExtra("Team");
-        teamID = team.getId();
+
         ArrayList<Position> listPositions = new ArrayList<>(mPositionDao.getAllPositions());
         initViews();
         //BaseAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listPositions);
@@ -74,6 +74,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
                 //mSelectedTeam = (Team) mSpinnerTeam.getSelectedItem();
                 if (!TextUtils.isEmpty(positionName)) {
                     // add the team to database
+                    teamID = team.getId();
                     Position createdPosition = mPositionDao.createPosition(positionName.toString(), teamID);
                     Log.d(TAG, "added position : " + createdPosition.getPositionName());
                     setResult(RESULT_OK);
