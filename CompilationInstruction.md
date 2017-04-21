@@ -1,5 +1,5 @@
 ## Compilation Instructions
-To run the app, you must have an android phone or android emulator on your computer.
+To run the app, you must have an android phone.
 
 ### Setting up your phone.
 1. Go to phone settings.
@@ -9,8 +9,12 @@ To run the app, you must have an android phone or android emulator on your compu
 Note: your phone's android settings may be slightly different. If these instructions do not work, you may look up how to allow installation from unknown sources for your particular Android device.
 
 ### How to install the app on your phone
-1. On your Android device's web browser, navigate to https://github.com/LoganSerio/TeamStats/blob/master/TeamStats.apk
-2. Download the .apk file
-3. Find the file in your downloads folder and click it.
-4. Open your phone's installer and navigate through its steps to complete installation.
-5. Congratulations, your app is now installed and you can run it. 
+1. On your computer's web browser, navigate to https://github.com/LoganSerio/TeamStats/blob/master/TeamStats.apk
+2. Download the .apk file.
+3. Plug in your Android phone to the computer and open up the device explorer.
+4. Copy the TeamStats.apk file from where you downloaded it on your computer to your phone's internal storage.
+5. On your phone's file explorer, navigate to where you placed the TeamStats.apk file.
+6. Click the file and navigate through your phone's installation prompt.
+7. Congratulations, you have now installed the app on your phone.
+
+If you have any questions, email teamstatsfeedback@gmail.com
