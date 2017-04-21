@@ -64,8 +64,8 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
                     intent.putExtra("Team", createdTeam);
                     startActivity(intent);
 
-                    //setResult(RESULT_OK, intent);
-                    //finish();
+                    setResult(RESULT_OK, intent);
+                    finish();
                 }
                 else {
                     Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();

@@ -31,8 +31,8 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     private ListPositionsAdapter mAdapter;
     private List<Position> mListPositions;
     private PositionDAO mPositionDao;
-    Team team;
     long teamId;
+    Team team;
 
 
     @Override
@@ -69,8 +69,9 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add_position:
-                Intent intent = new Intent(this, AddPositionActivity.class);
+                Intent intent = new Intent(this,  AddPositionActivity.class);
                 intent.putExtra("Team", team);
+                startActivity(intent);
                 startActivityForResult(intent, REQUEST_CODE_ADD_POSITION);
                 break;
 

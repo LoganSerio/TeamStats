@@ -141,8 +141,11 @@ class TeamDAO {
      */
     protected Team cursorToTeam(Cursor cursor) {
         Team team = new Team();
-        team.setId(cursor.getLong(0));
-        team.setName(cursor.getString(1));
+        if( cursor != null && cursor.moveToFirst() ) {
+            team.setId(cursor.getLong(0));
+            team.setName(cursor.getString(1));
+            cursor.close();
+        }
         return team;
     }
 }

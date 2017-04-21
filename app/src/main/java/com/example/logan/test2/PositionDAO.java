@@ -117,7 +117,7 @@ class PositionDAO {
     private Position cursorToPosition(Cursor cursor) {
         Position position = new Position();
 
-        //potential problem later!!!
+        //IF ERROR OCCURS, CHECK !NULL (SEE: TEAMDAO)
         position.setId(cursor.getLong(0));
         position.setPositionName(cursor.getString(1));
         // get The company by id

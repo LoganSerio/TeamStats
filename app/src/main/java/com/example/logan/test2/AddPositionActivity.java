@@ -11,11 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
-/**
- * A class that allows for the adding of position to a team.
- */
 public class AddPositionActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "AddPositionActivity";
@@ -29,13 +24,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     Team team;
     long teamID;
 
-    
-    
     @Override
-    /**
-     * Initializes the activity and displays it on the device's screen
-     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_position);
@@ -50,26 +39,13 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
         this.mTeamDao = new TeamDAO(this);
         this.mPositionDao = new PositionDAO(this);
 
-        team = (Team) getIntent().getSerializableExtra("Team");
+        //teamID = team.getId();
+        //ArrayList<Position> listPositions = new ArrayList<>(mPositionDao.getAllPositions());
 
-        ArrayList<Position> listPositions = new ArrayList<>(mPositionDao.getAllPositions());
         initViews();
-        //BaseAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listPositions);
 
-        //mListAdapter = new Arra(this, android.R.layout.simple_list_item_1, listPositions);
-        /*
-        //fill the spinner with companies
-        List<Team> listTeams = mTeamDao.getAllTeams();
-        if (listTeams != null) {
-             mAdapter = new SpinnerTeamsAdapter(this, listTeams);
-             mSpinnerTeam.setAdapter(mAdapter);
-            mSpinnerTeam.setOnItemSelectedListener(this);
-        }*/
     }
 
-    /**
-     * Initializes components on the activity page.
-     */
     private void initViews() {
         this.mTxtPositionName = (EditText) findViewById(R.id.txt_position_name);
         //this.mSpinnerTeam = (Spinner) findViewById(R.id.spinner_teams);
@@ -79,9 +55,6 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    /**
-     * Tells the button what to do in the event of a click.
-     */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
@@ -89,6 +62,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
                 //mSelectedTeam = (Team) mSpinnerTeam.getSelectedItem();
                 if (!TextUtils.isEmpty(positionName)) {
                     // add the team to database
+                    team = (Team) getIntent().getSerializableExtra("Team");
                     teamID = team.getId();
                     Position createdPosition = mPositionDao.createPosition(positionName.toString(), teamID);
                     Log.d(TAG, "added position : " + createdPosition.getPositionName());
@@ -109,9 +83,6 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    /**
-     * Closes the database.
-     */
     protected void onDestroy() {
         super.onDestroy();
         mTeamDao.close();
