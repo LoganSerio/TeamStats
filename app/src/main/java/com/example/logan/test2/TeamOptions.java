@@ -16,7 +16,6 @@ public class TeamOptions extends Fragment{
 
     Button btnEditPositions;
     Button btnEditStatistics;
-    Button btnEditPlayers;
     Button btnDeleteTeam;
 
     @Override
@@ -31,7 +30,6 @@ public class TeamOptions extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_team_options, container, false);
         btnEditPositions = (Button) rootView.findViewById(R.id.editPositionButton);
         btnEditStatistics = (Button) rootView.findViewById(R.id.editStatsButton);
-        btnEditPlayers = (Button) rootView.findViewById(R.id.editPlayerButton);
         btnDeleteTeam = (Button) rootView.findViewById(R.id.deleteTeamButton);
 
         btnEditPositions.setOnClickListener(new View.OnClickListener() {
@@ -42,13 +40,6 @@ public class TeamOptions extends Fragment{
         });
 
         btnEditStatistics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btnEditPlayers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

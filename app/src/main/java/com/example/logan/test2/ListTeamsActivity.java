@@ -121,8 +121,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
-        Intent intent = new Intent(this, ListPositionsActivity.class);
-        intent.putExtra(ListPositionsActivity.EXTRA_SELECTED_TEAM_ID, clickedTeam.getId());
+        Intent intent = new Intent(this, TeamPage.class);
         startActivity(intent);
     }
 

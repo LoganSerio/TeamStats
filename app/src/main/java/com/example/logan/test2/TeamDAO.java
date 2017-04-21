@@ -11,10 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Trevor on 4/18/17.
- */
-
-/**
  * A class that connects to the team data access object.
  */
 class TeamDAO {

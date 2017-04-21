@@ -35,7 +35,7 @@ public class Homepage extends AppCompatActivity {
         btnExistingTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Homepage.this,ListTeamsActivity.class));
+                startActivity(new Intent(Homepage.this, ListTeamsActivity.class));
             }
         });
 
