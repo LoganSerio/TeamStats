@@ -74,7 +74,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ADD_TEAM) {
             if (resultCode == RESULT_OK) {
-                // add the added team to the listCompanies and refresh the listView
+                // add the added team to the listTeam and refresh the listView
                 if (data != null) {
                     Team createdTeam = (Team) data.getSerializableExtra(EXTRA_ADDED_TEAM);
                     if (createdTeam != null) {

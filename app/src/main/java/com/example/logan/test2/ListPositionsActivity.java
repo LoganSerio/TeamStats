@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -49,10 +50,10 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
 
         team = (Team) getIntent().getSerializableExtra("Team");
         teamId = team.getId();
-        mListPositions = mPositionDao.getPositionsOfTeam(teamId);
-        mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions);
+        //mListPositions = mPositionDao.getPositionsOfTeam(teamId);
+        //mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions);
 
-        mListviewPositions.setAdapter(mAdapter);
+        //mListviewPositions.setAdapter(mAdapter);
 
     }
 
@@ -71,13 +72,44 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
             case R.id.btn_add_position:
                 Intent intent = new Intent(this,  AddPositionActivity.class);
                 intent.putExtra("Team", team);
-                startActivity(intent);
-                startActivityForResult(intent, REQUEST_CODE_ADD_POSITION);
+                startActivityForResult(intent, REQUEST_CODE_ADD_POSITION); //sends request code to addpositions
                 break;
 
             default:
                 break;
         }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQUEST_CODE_ADD_POSITION) {
+            if(resultCode == RESULT_OK) {
+                //refresh the listView
+                if(mListPositions == null || !mListPositions.isEmpty()) {
+                    mListPositions = new ArrayList<Position>();
+                }
+
+                if(mPositionDao == null)
+                    mPositionDao = new PositionDAO(this);
+                mListPositions = mPositionDao.getPositionsOfTeam(teamId);
+                if(mAdapter == null) {
+                    mAdapter = new ListPositionsAdapter(this, 0,mListPositions);
+                    mListviewPositions.setAdapter(mAdapter);
+                    if(mListviewPositions.getVisibility() != View.VISIBLE) {
+                        mTxtEmptyListPositions.setVisibility(View.GONE);
+                        mListviewPositions.setVisibility(View.VISIBLE);
+                    }
+                }
+                else {
+                    mListPositions = mPositionDao.getPositionsOfTeam(teamId); //moved this from on create
+                    mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions); //^^same
+                    mListviewPositions.setAdapter(mAdapter); // ^^same
+                    mAdapter.setItems(mListPositions); //adds the positions to the listview
+                    mAdapter.notifyDataSetChanged(); //updates listview
+                }
+            }
+        }
+        else
+            super.onActivityResult(requestCode, resultCode, data);
     }
 
 

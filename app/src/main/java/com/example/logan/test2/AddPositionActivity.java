@@ -66,12 +66,8 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
                     teamID = team.getId();
                     Position createdPosition = mPositionDao.createPosition(positionName.toString(), teamID);
                     Log.d(TAG, "added position : " + createdPosition.getPositionName());
-                    setResult(RESULT_OK);
-                    finish();
-
-                    Intent intent = new Intent(AddPositionActivity.this,ListPositionsActivity.class);
-                    intent.putExtra("Team",team);
-                    startActivity(intent);
+                    setResult(RESULT_OK); //sends result code to listpositions
+                    finish(); //closes activity
                 } else {
                     Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
                 }
