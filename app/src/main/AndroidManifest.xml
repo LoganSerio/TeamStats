@@ -23,7 +23,6 @@
         <activity
             android:name=".CreateTeamActivity"
             android:theme="@style/AppTheme.myTheme" />
-        <activity android:name=".PositionStats" />
         <activity
             android:name=".TeamPage"
             android:theme="@style/AppTheme.NoActionBar" />
