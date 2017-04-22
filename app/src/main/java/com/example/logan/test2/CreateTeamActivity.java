@@ -14,8 +14,8 @@ import android.widget.Toast;
 /**
  * A class that creates the activity for Creating a team
  */
-public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickListener{
-    public static final String TAG = "CreateTeamPopUp";
+public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener{
+    public static final String TAG = "CreateTeamActivity";
 
     private EditText mTxtTeamName;
     private Button mBtnAdd;
@@ -29,7 +29,7 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_team_pop_up);
+        setContentView(R.layout.activity_create_team);
 
         initViews();
 
@@ -60,7 +60,7 @@ public class CreateTeamPopUp extends AppCompatActivity implements View.OnClickLi
                     // add the company to database
                     Team createdTeam = mTeamDao.createTeam(teamName.toString());
                     Log.d(TAG, "added team : "+ createdTeam.getName());
-                    Intent intent = new Intent(CreateTeamPopUp.this,ListPositionsActivity.class);
+                    Intent intent = new Intent(CreateTeamActivity.this,ListPositionsActivity.class);
                     intent.putExtra("Team", createdTeam);
                     startActivity(intent);
 

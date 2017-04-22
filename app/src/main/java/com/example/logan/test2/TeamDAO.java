@@ -91,7 +91,7 @@ class TeamDAO {
     }
 
     /**
-     * A method that gets al the teams from the database.
+     * A method that gets all the teams from the database.
      * @return A list containing all the team names.
      */
     public List<Team> getAllTeams() {
@@ -100,9 +100,8 @@ class TeamDAO {
         Cursor cursor = mDatabase.query(DBHelper.TABLE_TEAMS, mAllColumns,
                 null, null, null, null, null);
 
-        if (cursor != null) {
-            cursor.moveToFirst();
-
+        if (cursor != null) { //drop down a line
+             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 Team team = cursorToTeam(cursor);
                 listTeams.add(team);
@@ -137,10 +136,9 @@ class TeamDAO {
      */
     protected Team cursorToTeam(Cursor cursor) {
         Team team = new Team();
-        if( cursor != null && cursor.moveToFirst() ) {
+        if(cursor != null) {
             team.setId(cursor.getLong(0));
             team.setName(cursor.getString(1));
-            cursor.close();
         }
         return team;
     }

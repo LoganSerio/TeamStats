@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Team Stats</string>
 
-    <!-- Homepage Start -->
+    <!-- HomepageActivity Start -->
     <string name="createNewTeamButton">Create New Team</string>
     <string name="existingTeamButton">Existing Teams</string>
     <string name="settingsButton">Settings</string>
-    <!-- Homepage End -->
+    <!-- HomepageActivity End -->
 
     <!-- Create Team Start -->
     <string name="teamFromScratchButton">Create a team from scratch</string>
@@ -23,10 +23,10 @@
     <!-- Existing Teams Page End -->
 
 
-    <!-- Settings Start -->
+    <!-- SettingsActivity Start -->
     <string name="sendFeedbackButton">Send Feedback</string>
     <string name="reorderTeamsButton">Reorder Teams</string>
-    <!-- Settings End -->
+    <!-- SettingsActivity End -->
 
     <!-- Send Feedback Start -->
     <string name="feedBackResponse">Feedback</string>

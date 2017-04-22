@@ -1,7 +1,6 @@
 package com.example.logan.test2;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 /**
  * A class that deals with the users ability to send feedback,
  */
-public class SendFeedback extends AppCompatActivity {
+public class SendFeedbackActivity extends AppCompatActivity {
 
     Button btnFeedbackSubmit;
     EditText etxtFeedbackSubject;
@@ -43,7 +42,7 @@ public class SendFeedback extends AppCompatActivity {
                 try {
                     startActivity(Intent.createChooser(emailIntent, "Send email using..."));
                 } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(SendFeedback.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SendFeedbackActivity.this, "No email clients installed.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

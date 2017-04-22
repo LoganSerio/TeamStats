@@ -8,21 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Homepage">
+        <activity android:name=".HomepageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Settings" />
-        <activity android:name=".SendFeedback" />
-        <activity android:name=".TeamCreation" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".SendFeedbackActivity" />
         <activity android:name=".AddPositionActivity" />
         <activity android:name=".ListPositionsActivity" />
         <activity android:name=".ListTeamsActivity" />
         <activity
-            android:name=".CreateTeamPopUp"
+            android:name=".CreateTeamActivity"
             android:theme="@style/AppTheme.myTheme" />
         <activity android:name=".PositionStats" />
         <activity

@@ -8,7 +8,7 @@ import android.widget.Button;
 /**
  * A class that makes the homepage of the app
  */
-public class Homepage extends AppCompatActivity {
+public class HomepageActivity extends AppCompatActivity {
     Button btnCreateNewTeam;
     Button btnExistingTeam;
     Button btnSettings;
@@ -28,21 +28,21 @@ public class Homepage extends AppCompatActivity {
         btnCreateNewTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Homepage.this,CreateTeamPopUp.class));
+                startActivity(new Intent(HomepageActivity.this,CreateTeamActivity.class));
             }
         });
 
         btnExistingTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Homepage.this, ListTeamsActivity.class));
+                startActivity(new Intent(HomepageActivity.this, ListTeamsActivity.class));
             }
         });
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Homepage.this,Settings.class));
+                startActivity(new Intent(HomepageActivity.this,SettingsActivity.class));
             }
         });
     }

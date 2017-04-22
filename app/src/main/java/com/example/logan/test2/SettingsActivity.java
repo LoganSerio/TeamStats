@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * The Settings class that contains the option to open the user manual and the send feedback page.
+ * The SettingsActivity class that contains the option to open the user manual and the send feedback page.
  */
-public class Settings extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
     Button btnSendFeedback;
     Button btnUserManual;
     Button btnTempTeamPage;
@@ -30,7 +30,7 @@ public class Settings extends AppCompatActivity {
         btnSendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings.this,SendFeedback.class));
+                startActivity(new Intent(SettingsActivity.this,SendFeedbackActivity.class));
             }
         });
 
@@ -50,7 +50,7 @@ public class Settings extends AppCompatActivity {
         btnTempTeamPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Settings.this,TeamPage.class));
+                startActivity(new Intent(SettingsActivity.this,TeamPage.class));
             }
         });
     }
