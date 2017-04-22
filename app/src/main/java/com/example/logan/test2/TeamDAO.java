@@ -125,7 +125,7 @@ class TeamDAO {
             cursor.moveToFirst();
         }
 
-        Team team = cursorToTeam(cursor);
+        Team team = cursorToTeamByID(cursor);
         return team;
     }
 
@@ -136,7 +136,15 @@ class TeamDAO {
      */
     protected Team cursorToTeam(Cursor cursor) {
         Team team = new Team();
-        if(cursor != null) {
+        if(cursor != null /*&& cursor.moveToFirst()*/){
+            team.setId(cursor.getLong(0));
+            team.setName(cursor.getString(1));
+        }
+        return team;
+    }
+    protected Team cursorToTeamByID(Cursor cursor) {
+        Team team = new Team();
+        if(cursor != null && cursor.moveToFirst()){
             team.setId(cursor.getLong(0));
             team.setName(cursor.getString(1));
         }
