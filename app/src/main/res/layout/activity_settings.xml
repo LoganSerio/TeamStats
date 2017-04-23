@@ -14,10 +14,10 @@
         android:text="@string/sendFeedbackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="131dp"
+        android:id="@+id/sendFeedbackButton"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
-        android:id="@+id/sendFeedbackButton" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/reorderTeamsButton"
@@ -31,12 +31,4 @@
         android:layout_alignRight="@+id/sendFeedbackButton"
         android:layout_alignEnd="@+id/sendFeedbackButton" />
 
-    <Button
-        android:id="@+id/btnTempTeamPage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/reorderTeamsButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
-        android:text="Temp Team Page" />
 </RelativeLayout>

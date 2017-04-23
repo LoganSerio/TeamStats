@@ -35,7 +35,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="4dp"
         android:gravity="center"
-        android:text="No positions created for this team. Add a new one by clicking the add button"
+        android:text="No positions currently created."
         android:textAppearance="?android:attr/textAppearance"
         android:textColor="@android:color/darker_gray"
         android:visibility="gone" />

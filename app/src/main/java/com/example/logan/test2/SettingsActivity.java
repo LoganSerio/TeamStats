@@ -13,7 +13,6 @@ import android.widget.Button;
 public class SettingsActivity extends AppCompatActivity {
     Button btnSendFeedback;
     Button btnUserManual;
-    Button btnTempTeamPage;
     @Override
     /**
      * Initializes the activity and displays it on the device's screen
@@ -25,7 +24,6 @@ public class SettingsActivity extends AppCompatActivity {
 
         btnSendFeedback = (Button) findViewById(R.id.sendFeedbackButton);
         btnUserManual = (Button) findViewById(R.id.reorderTeamsButton);
-        btnTempTeamPage = (Button) findViewById(R.id.btnTempTeamPage);
 
         btnSendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +42,5 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        THIS IS A TEMPORARY ACCESS TO THE TEAM PAGE, PLEASE DELETE WHEN TEAM PAGE IS LINKED
-         */
-        btnTempTeamPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SettingsActivity.this,TeamPage.class));
-            }
-        });
     }
 }
