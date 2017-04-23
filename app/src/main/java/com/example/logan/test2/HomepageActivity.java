@@ -9,6 +9,7 @@ import android.widget.Button;
  * A class that makes the homepage of the app
  */
 public class HomepageActivity extends AppCompatActivity {
+    public static final int REQUEST_CODE_FINISH_CREATION = 22;
     Button btnCreateNewTeam;
     Button btnExistingTeam;
     Button btnSettings;
@@ -45,5 +46,6 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(new Intent(HomepageActivity.this,SettingsActivity.class));
             }
         });
+
     }
 }

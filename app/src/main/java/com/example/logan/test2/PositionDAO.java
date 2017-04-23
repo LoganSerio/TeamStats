@@ -130,4 +130,28 @@ class PositionDAO {
 
         return position;
     }
+
+    public Position getPositionById(long id) {
+        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
+                DBHelper.COLUMN_POSITION_ID + " = ?",
+                new String[] { String.valueOf(id) }, null, null, null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        Position position = cursorToPositionByID(cursor);
+
+        return position;
+    }
+
+    protected Position cursorToPositionByID(Cursor cursor) {
+        Position position = new Position();
+        if(cursor != null && cursor.moveToFirst()){
+            position.setId(cursor.getLong(0));
+            position.setName(cursor.getString(1));
+        }
+        return position;
+    }
+
+
 }

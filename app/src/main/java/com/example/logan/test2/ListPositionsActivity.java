@@ -22,6 +22,7 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     public static final String TAG = "ListPositionsActivity";
 
     public static final int REQUEST_CODE_ADD_POSITION = 40;
+    public static final int REQUEST_CODE_STATS_LIST = 69;
     public static final String EXTRA_ADDED_POSITION = "extra_key_added_employee";
     public static final String EXTRA_SELECTED_TEAM_ID = "extra_key_selected_team_id";
 
@@ -50,6 +51,15 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
 
         team = (Team) getIntent().getSerializableExtra("Team");
         teamId = team.getId();
+
+        mAdapter = new ListPositionsAdapter(this, 0, mListPositions);
+        if (mAdapter != null) {
+            mListPositions = mPositionDao.getPositionsOfTeam(teamId); //moved this from on create
+            mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions); //^^same
+            mListviewPositions.setAdapter(mAdapter); // ^^same
+            mAdapter.setItems(mListPositions); //adds the positions to the listview
+            mAdapter.notifyDataSetChanged(); //updates listview
+        }
         //mListPositions = mPositionDao.getPositionsOfTeam(teamId);
         //mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions);
 
@@ -123,6 +133,9 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Position clickedPosition = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : "+clickedPosition.getPositionName());
+        Intent intent = new Intent(this, ListStatisticsActivity.class);
+        intent.putExtra("Position", clickedPosition);
+        startActivityForResult(intent,REQUEST_CODE_STATS_LIST);
     }
 
     @Override
@@ -139,7 +152,7 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
 
         alertDialogBuilder.setTitle("Delete");
         alertDialogBuilder
-                .setMessage("Are you sure you want to delete the employee \""
+                .setMessage("Are you sure you want to delete the position \""
                         + position.getPositionName() + " "
                         + "\"");
 

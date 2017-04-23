@@ -25,7 +25,7 @@ class DBHelper extends SQLiteOpenHelper {
 
     // statistics table
     public static final String TABLE_STATISTICS = "statistics";
-    public static final String COLUMN_STATISTIC_ID = COLUMN_TEAM_ID;
+    public static final String COLUMN_STATISTIC_ID = COLUMN_POSITION_ID;
     public static final String COLUMN_STATISTIC_NAME = "statistic_name";
     public static final String COLUMN_STATISTIC_VALUE = "statistic_value";
     public static final String COLUMN_STATISTIC_POSITION_ID = "position_id";
@@ -39,7 +39,7 @@ class DBHelper extends SQLiteOpenHelper {
             + COLUMN_STATISTIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_STATISTIC_NAME + " TEXT NOT NULL, "
             + COLUMN_STATISTIC_VALUE + " TEXT NOT NULL, "
-            + COLUMN_STATISTIC_POSITION_ID + "INTEGER NOT NULL"
+            + COLUMN_STATISTIC_POSITION_ID + " INTEGER NOT NULL "
             +");";
 
     // SQL statement of the position table creation
@@ -64,11 +64,12 @@ class DBHelper extends SQLiteOpenHelper {
     @Override
     /**
      * Initializes the activity and displays it on the device's screen
-     * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
+     * @param savedInstanceState saves the state of the app in case the app needs to be re-initialized
      */
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(SQL_CREATE_TABLE_TEAMS);
         database.execSQL(SQL_CREATE_TABLE_POSITIONS);
+        database.execSQL(SQL_CREATE_TABLE_STATISTICS);
     }
 
     @Override
@@ -84,6 +85,7 @@ class DBHelper extends SQLiteOpenHelper {
         // clear all data
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_POSITIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAMS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATISTICS);
 
         // recreate the tables
         onCreate(db);

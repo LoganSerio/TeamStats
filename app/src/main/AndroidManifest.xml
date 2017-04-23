@@ -27,6 +27,8 @@
         <activity
             android:name=".TeamPage"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddStatisticsActivity" />
+        <activity android:name=".ListStatisticsActivity" />
     </application>
 
 </manifest>

@@ -43,4 +43,10 @@ class Position implements Serializable{
     public String getTeamName() {
         return mTeam.getName();
     }
+    public String getName() {
+        return mPositionName;
+    }
+    public void setName(String positionName) {
+        this.mPositionName = positionName;
+    }
 }

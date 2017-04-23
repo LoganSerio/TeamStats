@@ -1,6 +1,5 @@
 package com.example.logan.test2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -81,7 +80,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mTeamDao.close();
+                                                                                                                                                                    mTeamDao.close();
     }
 
 }
