@@ -211,6 +211,4 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
                 });
         alertDialogBuilder.show();
     }
-
-
 }
