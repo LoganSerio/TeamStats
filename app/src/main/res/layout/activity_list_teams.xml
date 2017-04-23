@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lo" >
+    tools:context="com.example.logan.test2.ListTeamsActivity" >
 
     <TextView
         android:id="@+id/txt_empty_list_teams"
@@ -24,21 +24,7 @@
         android:divider="@android:drawable/divider_horizontal_bright"
         android:dividerHeight="0.5dp"
         android:listSelector="@android:drawable/list_selector_background"
-        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:text="Saved Teams: "
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textSize="30sp" />
 
 </RelativeLayout>
