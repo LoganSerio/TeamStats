@@ -1,18 +1,19 @@
 package com.example.logan.test2;
+
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * A class that makes the homepage of the app
  */
 public class HomepageActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_FINISH_CREATION = 22;
-    Button btnCreateNewTeam;
-    Button btnExistingTeam;
-    Button btnSettings;
+    ImageButton btnCreateNewTeam;
+    ImageButton btnExistingTeam;
+    ImageButton btnSettings;
 
     /**
      * Initializes the activity and displays it on the device's screen
@@ -22,9 +23,9 @@ public class HomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        btnCreateNewTeam = (Button) findViewById(R.id.createTeamButton);
-        btnExistingTeam = (Button) findViewById(R.id.existingTeamButton);
-        btnSettings = (Button) findViewById(R.id.settingsButton);
+        btnCreateNewTeam = (ImageButton) findViewById(R.id.btn_create_team);
+        btnExistingTeam = (ImageButton) findViewById(R.id.btn_existing_teams);
+        btnSettings = (ImageButton) findViewById(R.id.btn_settings);
 
         btnCreateNewTeam.setOnClickListener(new View.OnClickListener() {
             @Override

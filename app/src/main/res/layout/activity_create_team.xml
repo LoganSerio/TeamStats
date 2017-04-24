@@ -4,6 +4,7 @@
     android:id="@+id/activity_create_team_pop_up"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/matdark"
     android:layout_margin="8dp"
     tools:context="com.example.logan.test2.CreateTeamActivity">
 
