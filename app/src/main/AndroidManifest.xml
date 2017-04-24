@@ -28,7 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddStatisticsActivity" />
         <activity android:name=".ListStatisticsActivity" />
-        <activity android:name=".test"></activity>
+        <activity android:name=".EditStatsActivity"></activity>
     </application>
 
 </manifest>

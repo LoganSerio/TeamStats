@@ -60,7 +60,15 @@ class StatisticDAO {
         return newStatistic;
     }
 
-
+    public void updateStatistics(ArrayList<Statistic> list) {
+        for(int i = 0; i < list.size() - 1; i++) {
+            Statistic stat = (Statistic) list.get(i);
+            long id = stat.getId();
+            String value = stat.getStatisticValue();
+            String sql = "UPDATE STATISTICS SET statistic_value = " + value + " WHERE _id = " + id + ";";
+            mDatabase.execSQL(sql);
+        }
+    }
 
     public void deleteStatistic(Statistic statistic) {
         long id = statistic.getId();

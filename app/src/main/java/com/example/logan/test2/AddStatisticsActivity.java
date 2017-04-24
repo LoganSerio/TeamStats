@@ -42,12 +42,12 @@ public class AddStatisticsActivity extends AppCompatActivity implements View.OnC
         switch(v.getId()) {
             case R.id.btn_add:
                 Editable statisticName = mTxtStatisticName.getText();
-                String value = "";
+                //String value = "0";
                 if(!TextUtils.isEmpty(statisticName)) {
-                    // add statistic to databse
+                    // add statistic to database
                     position = (Position) getIntent().getSerializableExtra("Position");
                     positionId = position.getId();
-                    Statistic createdStatistic = mStatisticDAO.createStatistic(statisticName.toString(), value, positionId);
+                    Statistic createdStatistic = mStatisticDAO.createStatistic(statisticName.toString(), "0", positionId);
                     Log.d(TAG, "added statistic : " + createdStatistic.getStatisticName());
                     setResult(RESULT_OK);
                     finish();

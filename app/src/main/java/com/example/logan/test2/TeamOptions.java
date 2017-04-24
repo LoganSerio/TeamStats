@@ -17,6 +17,7 @@ public class TeamOptions extends Fragment{
     Button btnEditPositions;
     Button btnEditStatistics;
     Button btnDeleteTeam;
+    public static final int REQUEST_CODE_EDIT_POSITION = 40;
 
     @Override
     /**
@@ -35,14 +36,22 @@ public class TeamOptions extends Fragment{
         btnEditPositions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TeamOptions.this.getActivity(),ListPositionsActivity.class));
+                Team team = (Team) getActivity().getIntent().getSerializableExtra("Team");
+                Intent intent = new Intent(TeamOptions.this.getActivity(),ListPositionsActivity.class);
+                intent.putExtra("Team",team);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
         btnEditStatistics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Team team = (Team) getActivity().getIntent().getSerializableExtra("Team");
+                Intent intent = new Intent(TeamOptions.this.getActivity(),EditStatsActivity.class);
+                intent.putExtra("Team",team);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 
@@ -55,4 +64,5 @@ public class TeamOptions extends Fragment{
 
         return rootView;
     }
+
 }
