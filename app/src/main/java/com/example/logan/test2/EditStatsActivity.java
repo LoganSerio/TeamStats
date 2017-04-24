@@ -1,5 +1,6 @@
 package com.example.logan.test2;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +36,12 @@ public class EditStatsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 statList = new ArrayList<Statistic>(getStatList(posList,statList));
-                //Trevor needs to make edit stat method in statisticDAO
+                mStatisticDAO.updateStatistics(statList);
+                Intent intent = new Intent(EditStatsActivity.this,TeamPage.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Team team = (Team) getIntent().getSerializableExtra("Team");
+                intent.putExtra("Team",team);
+                startActivity(intent);
             }
         });
 
@@ -82,15 +88,16 @@ public class EditStatsActivity extends AppCompatActivity {
         }
     }
     private ArrayList<Statistic> getStatList(ArrayList<Position> posOld,ArrayList<Statistic> statOld) {
+        ArrayList<Statistic> statNew = new ArrayList<>(statOld);
         for (Position pos : posOld) {
             int count = 0;
             for (Statistic stat : statOld) {
-                Statistic newStat = statOld.get(count);
-                newStat.setStatisticValue(editList.get(count));
-                statOld.add(count,newStat);
+                //Statistic newStat = statOld.get(count);
+                stat.setStatisticValue(editList.get(count));
+                statNew.add(count,stat);
                 count++;
             }
         }
-        return statOld;
+        return statNew;
     }
 }
