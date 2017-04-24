@@ -43,22 +43,21 @@ When you first click the “Create New Team” button on the app’s homepage, y
 # Adding Positions to Your Team
 After you entered your team name, you will see an empty screen titled “All Positions”. You will notice that the page is blank at the moment but don’t panic, that’s normal. To create a position and add it to this screen you are going to need to click the plus button in the top right hand corner of the screen. When you click the plus, you will be brought to a page similar to the create team popup except this time you will be naming a position of the sport or activity you partake in (for example, QB, PG, C, SS, etc.). Once you name your position click the “add” button at the bottom of the screen. Doing this will instantly move you back to the page you started on (the “All Positions” screen), except now you will see your created positon. Do the same thing over and over again to continue to add positions.
 # Adding Stats to Your Team's Positions
-
-# Existing Teams Page
+After the user has created a position, they must then select a specified position in order to add relevent categories of statistics to be tracked by position. The user may choose to add as many statistics to be tracked as they wish. If the user presses the back button, they will be brought back to the position page. If the user chooses finish, they will be sent to the homepage. At which point, they may choose to navigate to existing teams page and then select the team of their interest. They may finally choose the update stats button in order to input their desired statistics for the slots they created earlier. 
+## Existing Teams Page
 # Specific Team Page
 On this page, the user is offered a list view of all the existing teams. The team overview page offers an overview of the existing teams current statistics. In the team options page, the user is offered the options to edit positions, edit statistics and delete team. 
 # Team Overview Tab
 The team overview tab is how the team’s statistics are presented to the user. On this tab, the currently existing statistics are presented to the user.
 # Team Options Tab
 The team options page presents an overview of the four available team options. Each of the four options are connected to a button responsible for a desired task. The user is offered three options. The options available to the user are edit position, edit statistics, and delete team. 
-# Edit Position
-In the case where the user chooses to edit position, they are brought back to the all position page. From this point, they can alter the existing positions. This is especially useful in the case in which they wish to add more positions to track stats for.
-# Edit Statistics Button
-
+# Edit Team Details
+In the case where the user chooses to edit team details, they are brought back to the all position page. From this point, they can alter the existing positions. This is especially useful in the case in which they wish to add more positions to track stats for.
+# Update Stats Button
+In the case where the user chooses to update stats, the user is then prompted with a list of the currently available statistic fields. At this point, the user may choose to fill out any or all of the currently available options. They can then save those specific values and save them for future references. 
 # Delete Team Button
 If the user presses the “Delete” button, a window will pop up saying “You are about to delete this team. Deleting a team will erase all information about this team forever. Are you sure you want to continue?” Below the message the user is given the options “Yes” or “No.” If the user selects “Yes” the specified team will be deleted. If the User selects “No” the pop up window will disappear and the user will remain on the Specific Team Page.
 Disclaimer: Deleting a team is permanent and information about the deleted team cannot be recovered
-
 # Settings Page
 # Send Feedback
 If the user presses the “Send Feedback” button, A new screen appears with a blank textbox for the message, another blank textbox for the user’s email address, and a button that says “Submit.” The user can write their feedback and email address in the text boxes and press the send button once finished. Our team will try to reach out to the user as soon as we can.
