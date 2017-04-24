@@ -122,9 +122,9 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
-        TreeMap<String,TreeMap<String,String>> map = getTeamData(clickedTeam.getId());
-        Intent intent = new Intent(this, test.class);
-        intent.putExtra("Team Data",map);
+        //TreeMap<String,TreeMap<String,String>> map = getTeamData(clickedTeam.getId());
+        Intent intent = new Intent(this, TeamPage.class);
+        //intent.putExtra("Team Data",map);
         intent.putExtra("Team",clickedTeam);
         startActivity(intent);
     }

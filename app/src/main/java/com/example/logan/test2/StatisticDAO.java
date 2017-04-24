@@ -61,7 +61,6 @@ class StatisticDAO {
     }
 
 
-
     public void deleteStatistic(Statistic statistic) {
         long id = statistic.getId();
         System.out.println("the deleted statistic has the id: " + id);

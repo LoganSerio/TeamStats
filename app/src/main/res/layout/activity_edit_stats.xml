@@ -14,25 +14,30 @@
 
     <ScrollView
 
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/saveStatsButton"
         android:layout_below="@+id/tvTeamName">
 
         <TableLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/tb"
-            android:stretchColumns="*">
-
-            <TableRow
-                android:layout_weight="1"
-                android:layout_width="0dp">
-
-            </TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         </TableLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/saveStatsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:text="Save Stats" />
 
 </RelativeLayout>
