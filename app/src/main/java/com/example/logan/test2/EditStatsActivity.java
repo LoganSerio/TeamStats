@@ -83,7 +83,7 @@ public class EditStatsActivity extends AppCompatActivity {
                 tv2.setTextSize(25);
                 tv1.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
                 tv2.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
-                tv2.setGravity(Gravity.START);
+                tv2.setGravity(Gravity.CENTER);
                 editList.add(tv2);
                 tr.addView(tv1);
                 tr.addView(tv2);

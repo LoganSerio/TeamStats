@@ -66,7 +66,7 @@ public class TeamOverview extends Fragment {
                 tv2.setTextSize(25);
                 tv1.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
                 tv2.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
-                tv2.setGravity(Gravity.START);
+                tv2.setGravity(Gravity.CENTER);
                 tr.addView(tv1);
                 tr.addView(tv2);
                 tableLayout.addView(tr);
