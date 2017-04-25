@@ -13,7 +13,6 @@ import java.util.List;
 
 class PositionDAO {
     public static final String TAG = "PositionDAO";
-
     private Context mContext;
 
     // Database fields
@@ -57,43 +56,11 @@ class PositionDAO {
         return newPosition;
     }
 
-    public Position createPosition(String positionName) {
-        ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_POSITION_NAME, positionName);
-        long insertId = mDatabase
-                .insert(DBHelper.TABLE_POSITIONS, null, values);
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
-                DBHelper.COLUMN_POSITION_ID + " = " + insertId, null, null,
-                null, null);
-        cursor.moveToFirst();
-        Position newPosition = cursorToPosition(cursor);
-        cursor.close();
-        return newPosition;
-
-    }
-
     public void deletePosition(Position position) {
         long id = position.getId();
         System.out.println("the deleted position has the id: " + id);
         mDatabase.delete(DBHelper.TABLE_POSITIONS, DBHelper.COLUMN_POSITION_ID
                 + " = " + id, null);
-    }
-
-    public List<Position> getAllPositions() {
-        List<Position> listPositions = new ArrayList<Position>();
-
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
-                null, null, null, null, null);
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Position position = cursorToPosition(cursor);
-            listPositions.add(position);
-            cursor.moveToNext();
-        }
-        // make sure to close the cursor
-        cursor.close();
-        return listPositions;
     }
 
     public List<Position> getPositionsOfTeam(long teamId) {
@@ -120,8 +87,6 @@ class PositionDAO {
         //IF ERROR OCCURS, CHECK !NULL (SEE: TEAMDAO)
         position.setId(cursor.getLong(0));
         position.setPositionName(cursor.getString(1));
-        // get The company by id
-
         long teamId = cursor.getLong(0);
         TeamDAO dao = new TeamDAO(mContext);
         Team team = dao.getTeamById(teamId);
@@ -138,9 +103,7 @@ class PositionDAO {
         if (cursor != null) {
             cursor.moveToFirst();
         }
-
         Position position = cursorToPositionByID(cursor);
-
         return position;
     }
 
@@ -152,6 +115,4 @@ class PositionDAO {
         }
         return position;
     }
-
-
 }

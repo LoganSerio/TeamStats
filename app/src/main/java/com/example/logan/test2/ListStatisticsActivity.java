@@ -22,11 +22,7 @@ import static com.example.logan.test2.ListPositionsActivity.REQUEST_CODE_ADD_POS
 public class ListStatisticsActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener {
 
     public static final String TAG = "ListStatisticsActivity";
-
     public static final int REQUEST_CODE_ADD_STATISTIC = 40;
-    public static final String EXTRA_ADDED_STATISTIC = "extra_key_added_statistic";
-    public static final String EXTRA_SELECTED_TEAM_ID = "extra_key_selected_position_id";
-
     private ListView mListViewStatistics;
     private TextView mTxtEmptyListStatistics;
     private ImageButton mBtnAddStatistic;
@@ -44,9 +40,6 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_statistics);
 
-
-
-
         // initialize the values
         initViews();
 
@@ -55,7 +48,6 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         position = (Position) getIntent().getSerializableExtra("Position");
         positionId = position.getId();
         mAdapter = new ListStatisticsAdapter(this, 0, mListStatistics);
-
         if (mAdapter != null) {
             mListStatistics = mStatisticDao.getStatisticsOfPosition(positionId); //moved this from on create
             mAdapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, mListStatistics); //^^same
@@ -63,7 +55,6 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
             mAdapter.setItems(mListStatistics); //adds the positions to the listview
             mAdapter.notifyDataSetChanged(); //updates listview
         }
-
     }
 
     private void initViews() {
@@ -76,7 +67,6 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         this.mBtnFinish = (Button) findViewById(R.id.btn_finish);
         this.mBtnBack.setOnClickListener(this);
         this.mBtnFinish.setOnClickListener(this);
-
     }
 
     @Override
@@ -106,11 +96,9 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
                 if (mListStatistics == null || !mListStatistics.isEmpty()) {
                     mListStatistics = new ArrayList<Statistic>();
                 }
-
                 if (mStatisticDao == null)
                     mStatisticDao = new StatisticDAO(this);
                 mListStatistics = mStatisticDao.getStatisticsOfPosition(positionId);
-
                 // if the adapter is null, instantiate it
                 if (mAdapter == null) {
                     mAdapter = new ListStatisticsAdapter(this, 0, mListStatistics);
@@ -147,11 +135,9 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
 
     private void showDeleteDialogConfirmation(final Statistic statistic) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
         //Set the title and message of the delete confirmation alert
         alertDialogBuilder.setTitle("Delete");
-        alertDialogBuilder
-                .setMessage("Are you sure you want to delete the statistic \""
+        alertDialogBuilder.setMessage("Are you sure you want to delete the statistic \""
                         + statistic.getStatisticName() + " "
                         + "\"");
 
@@ -170,19 +156,28 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
                         mListViewStatistics.setVisibility(View.GONE);
                         mTxtEmptyListStatistics.setVisibility(View.VISIBLE);
                     }
-
                     mAdapter.setItems(mListStatistics);
                     mAdapter.notifyDataSetChanged();
                 }
-
                 dialog.dismiss();
-                Toast.makeText(ListStatisticsActivity.this, "Position deleted successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListStatisticsActivity.this, "Statistic deleted successfully", Toast.LENGTH_SHORT).show();
 
             }
         });
+        alertDialogBuilder.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Dismiss the dialog
+                dialog.dismiss();
+            }
+        });
 
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show alert
+        alertDialog.show();
     }
+
     private void showFinishDialogConfirmation() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 

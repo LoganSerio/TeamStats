@@ -81,13 +81,11 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
                         if (mListTeams == null)
                             mListTeams = new ArrayList<Team>();
                         mListTeams.add(createdTeam);
-
                         if (mAdapter == null) {
                             if (mListviewTeams.getVisibility() != View.VISIBLE) {
                                 mListviewTeams.setVisibility(View.VISIBLE);
                                 mTxtEmptyListTeams.setVisibility(View.GONE);
                             }
-
                             mAdapter = new ListTeamsAdapter(this, mListTeams);
                             mListviewTeams.setAdapter(mAdapter);
                         } else {
@@ -157,7 +155,6 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // delete the company and refresh the list
                 if (mTeamDao != null) {
                     mTeamDao.deleteTeam(clickedTeam);
                     mListTeams.remove(clickedTeam);
@@ -170,7 +167,6 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
                     mAdapter.setItems(mListTeams);
                     mAdapter.notifyDataSetChanged();
                 }
-
                 dialog.dismiss();
                 Toast.makeText(ListTeamsActivity.this, "Team deleted successfully", Toast.LENGTH_SHORT).show();
             }
@@ -185,7 +181,6 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
                 dialog.dismiss();
             }
         });
-
         AlertDialog alertDialog = alertDialogBuilder.create();
         // show alert
         alertDialog.show();

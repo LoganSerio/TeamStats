@@ -10,7 +10,6 @@ import android.widget.ImageButton;
  * A class that makes the homepage of the app
  */
 public class HomepageActivity extends AppCompatActivity {
-    public static final int REQUEST_CODE_FINISH_CREATION = 22;
     ImageButton btnCreateNewTeam;
     ImageButton btnExistingTeam;
     ImageButton btnSettings;

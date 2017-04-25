@@ -28,9 +28,7 @@ public class EditStatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_stats);
-
         btnSaveStats = (Button) findViewById(R.id.saveStatsButton);
-
         btnSaveStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

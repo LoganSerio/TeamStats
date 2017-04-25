@@ -16,8 +16,6 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
 
     private EditText mTxtPositionName;
     private Button mBtnAdd;
-    private ListTeamsAdapter mListAdapter;
-
     private TeamDAO mTeamDao;
     private PositionDAO mPositionDao;
     Team team;
@@ -27,19 +25,8 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_position);
-    /*
-        mBtnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(AddPositionActivity.this, ListPositionsActivity.class));
-            }
-        });
-    */
         this.mTeamDao = new TeamDAO(this);
         this.mPositionDao = new PositionDAO(this);
-
-        //teamID = team.getId();
-        //ArrayList<Position> listPositions = new ArrayList<>(mPositionDao.getAllPositions());
 
         initViews();
 
@@ -47,9 +34,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
 
     private void initViews() {
         this.mTxtPositionName = (EditText) findViewById(R.id.txt_position_name);
-        //this.mSpinnerTeam = (Spinner) findViewById(R.id.spinner_teams);
         this.mBtnAdd = (Button) findViewById(R.id.btn_add);
-
         this.mBtnAdd.setOnClickListener(this);
     }
 
@@ -58,7 +43,6 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()) {
             case R.id.btn_add:
                 Editable positionName = mTxtPositionName.getText();
-                //mSelectedTeam = (Team) mSpinnerTeam.getSelectedItem();
                 if (!TextUtils.isEmpty(positionName)) {
                     // add the team to database
                     team = (Team) getIntent().getSerializableExtra("Team");
@@ -71,7 +55,6 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
                     Toast.makeText(this, "One or more fields are empty", Toast.LENGTH_LONG).show();
                 }
                 break;
-
             default:
                 break;
         }

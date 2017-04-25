@@ -25,18 +25,14 @@ public class ListStatisticsAdapter extends ArrayAdapter<Statistic> {
     @Override
     public View getView(int index, View convertView, ViewGroup parent) {
         View v = convertView;
-
         if(v == null) {
             LayoutInflater vi;
             vi = LayoutInflater.from(getContext());
             v = vi.inflate(R.layout.list_item_statistic, null);
         }
-
         Statistic p = getItem(index);
-
         if(p != null) {
             TextView statName = (TextView) v.findViewById(R.id.txt_statistic_name);
-
             if(statName != null) {
                 statName.setText(p.getStatisticName());
             }

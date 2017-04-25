@@ -15,7 +15,6 @@ import java.util.List;
 public class ListTeamsAdapter extends BaseAdapter {
 
     public static final String TAG = "ListTeamsAdapter";
-
     private List<Team> mItems;
     private LayoutInflater mInflater;
 

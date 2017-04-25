@@ -51,8 +51,4 @@ public class Statistic implements Serializable {
         return this.mStatisticName.toString();
     }
 
-    public String getPositionName() {
-        return mPosition.getName();
-    }
-
 }

@@ -63,7 +63,6 @@ class StatisticDAO {
     public void updateStatistics(Statistic stat) {
         ContentValues values = new ContentValues();
         values.put("statistic_value", stat.getStatisticValue());
-        //String KEY_ID = Long.toString(stat.getId());
         mDatabase.update("statistics", values, DBHelper.COLUMN_STATISTIC_ID+"="+stat.getId(), null);
     }
 
@@ -74,22 +73,6 @@ class StatisticDAO {
                 + " = " + id, null);
     }
 
-    public List<Statistic> getAllStatistics() {
-        List<Statistic> listStatistics = new ArrayList<Statistic>();
-
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_STATISTICS, mAllColumns,
-                null, null, null, null, null);
-
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            Statistic statistic = cursorToStatistic(cursor);
-            listStatistics.add(statistic);
-            cursor.moveToNext();
-        }
-        // close the cursor
-        cursor.close();
-        return listStatistics;
-    }
 
     public List<Statistic> getStatisticsOfPosition(long positionId) {
         List<Statistic> listStatistics = new ArrayList<Statistic>();

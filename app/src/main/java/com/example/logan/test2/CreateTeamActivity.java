@@ -16,10 +16,8 @@ import android.widget.Toast;
  */
 public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = "CreateTeamActivity";
-
     private EditText mTxtTeamName;
     private Button mBtnAdd;
-
     private TeamDAO mTeamDao;
 
     @Override
@@ -42,10 +40,7 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
     private void initViews() {
         this.mTxtTeamName = (EditText) findViewById(R.id.txt_team_name);
         this.mBtnAdd = (Button) findViewById(R.id.btn_add);
-
         this.mBtnAdd.setOnClickListener(this);
-
-
     }
 
     @Override
@@ -57,7 +52,6 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
             case R.id.btn_add:
                 Editable teamName = mTxtTeamName.getText();
                 if (!TextUtils.isEmpty(teamName)) {
-                    // add the company to database
                     Team createdTeam = mTeamDao.createTeam(teamName.toString());
                     Log.d(TAG, "added team : "+ createdTeam.getName());
                     Intent intent = new Intent(CreateTeamActivity.this,ListPositionsActivity.class);

@@ -56,7 +56,6 @@ class DBHelper extends SQLiteOpenHelper {
             +");";
 
 
-
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -90,5 +89,4 @@ class DBHelper extends SQLiteOpenHelper {
         // recreate the tables
         onCreate(db);
     }
-
 }

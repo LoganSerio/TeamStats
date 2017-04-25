@@ -23,8 +23,6 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
 
     public static final int REQUEST_CODE_ADD_POSITION = 40;
     public static final int REQUEST_CODE_STATS_LIST = 69;
-    public static final String EXTRA_ADDED_POSITION = "extra_key_added_employee";
-    public static final String EXTRA_SELECTED_TEAM_ID = "extra_key_selected_team_id";
 
     private ListView mListviewPositions;
     private TextView mTxtEmptyListPositions;
@@ -60,11 +58,6 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
             mAdapter.setItems(mListPositions); //adds the positions to the listview
             mAdapter.notifyDataSetChanged(); //updates listview
         }
-        //mListPositions = mPositionDao.getPositionsOfTeam(teamId);
-        //mAdapter = new ListPositionsAdapter(this, R.layout.list_item_position, mListPositions);
-
-        //mListviewPositions.setAdapter(mAdapter);
-
     }
 
     private void initViews() {
@@ -142,7 +135,6 @@ public class ListPositionsActivity extends AppCompatActivity implements AdapterV
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Position clickedPosition = mAdapter.getItem(position);
         Log.d(TAG, "longClickedItem : "+clickedPosition.getPositionName());
-
         showDeleteDialogConfirmation(clickedPosition);
         return true;
     }

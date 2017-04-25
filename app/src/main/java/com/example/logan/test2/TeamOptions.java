@@ -20,7 +20,6 @@ public class TeamOptions extends Fragment{
     Button btnEditPositions;
     Button btnEditStatistics;
     Button btnDeleteTeam;
-    public static final int REQUEST_CODE_EDIT_POSITION = 40;
     TeamDAO mTeamDAO;
 
     @Override
@@ -85,7 +84,7 @@ public class TeamOptions extends Fragment{
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // delete the company and refresh the list
+                // delete the team and refresh the list
                 mTeamDAO.deleteTeam(team);
                 dialog.dismiss();
                 Toast.makeText(TeamOptions.this.getActivity(), "Team deleted successfully", Toast.LENGTH_SHORT).show();

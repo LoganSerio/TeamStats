@@ -17,14 +17,13 @@ public class AddStatisticsActivity extends AppCompatActivity implements View.OnC
     private Button mBtnAdd;
     Position position;
     long positionId;
-
     private PositionDAO mPositionDAO;
     private StatisticDAO mStatisticDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_statistics);
-
         this.mPositionDAO = new PositionDAO(this);
         this.mStatisticDAO = new StatisticDAO(this);
 
@@ -42,7 +41,6 @@ public class AddStatisticsActivity extends AppCompatActivity implements View.OnC
         switch(v.getId()) {
             case R.id.btn_add:
                 Editable statisticName = mTxtStatisticName.getText();
-                //String value = "0";
                 if(!TextUtils.isEmpty(statisticName)) {
                     // add statistic to database
                     position = (Position) getIntent().getSerializableExtra("Position");
