@@ -31,7 +31,7 @@ public class ListTeamsAdapter extends BaseAdapter {
 
     @Override
     /**
-     * Gets the count of teams.
+     * Gets the size of teams.
      * @return the number of teams.
      */
     public int getCount() {

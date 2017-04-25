@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeMap;
 
 /**
  * Lists all the teams that the user has created. The user can also hold down a team and then delete it that way.
@@ -122,9 +121,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = mAdapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
-        //TreeMap<String,TreeMap<String,String>> map = getTeamData(clickedTeam.getId());
         Intent intent = new Intent(this, TeamPage.class);
-        //intent.putExtra("Team Data",map);
         intent.putExtra("Team",clickedTeam);
         startActivity(intent);
     }
@@ -153,7 +150,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder.setTitle("Delete");
-        alertDialogBuilder.setMessage("Are you sure you want to delete the \"" + clickedTeam.getName() + "\" company ?");
+        alertDialogBuilder.setMessage("Are you sure you want to delete \"" + clickedTeam.getName() + "\"  ?");
 
         // set positive button YES message
         alertDialogBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -192,18 +189,5 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         AlertDialog alertDialog = alertDialogBuilder.create();
         // show alert
         alertDialog.show();
-    }
-    private TreeMap<String, TreeMap<String,String>> getTeamData(long teamId) {
-        TreeMap<String, TreeMap<String,String>> positions = new TreeMap<>();
-        List<Position> list = new PositionDAO(this).getPositionsOfTeam(teamId);
-        for (Position pos : list) {
-            List<Statistic> stats = new StatisticDAO(this).getStatisticsOfPosition(pos.getId());
-            TreeMap<String,String> savedStats = new TreeMap<>();
-            for (Statistic stat : stats) {
-                savedStats.put(stat.getStatisticName(),"0");
-            }
-            positions.put(pos.getPositionName(),savedStats);
-        }
-        return positions;
     }
 }

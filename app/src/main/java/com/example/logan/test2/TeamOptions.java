@@ -1,5 +1,7 @@
 package com.example.logan.test2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
@@ -18,6 +21,7 @@ public class TeamOptions extends Fragment{
     Button btnEditStatistics;
     Button btnDeleteTeam;
     public static final int REQUEST_CODE_EDIT_POSITION = 40;
+    TeamDAO mTeamDAO;
 
     @Override
     /**
@@ -32,6 +36,7 @@ public class TeamOptions extends Fragment{
         btnEditPositions = (Button) rootView.findViewById(R.id.editPositionButton);
         btnEditStatistics = (Button) rootView.findViewById(R.id.editStatsButton);
         btnDeleteTeam = (Button) rootView.findViewById(R.id.deleteTeamButton);
+        mTeamDAO = new TeamDAO(getActivity());
 
         btnEditPositions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +63,51 @@ public class TeamOptions extends Fragment{
         btnDeleteTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Team team = (Team) getActivity().getIntent().getSerializableExtra("Team");
+                showDeleteDialogConfirmation(team);
             }
         });
 
         return rootView;
+    }
+    /**
+     * Displays a message asking the user for confirmation if they wish to delete the team.
+     * @param team The name of the deleted team.
+     */
+    private void showDeleteDialogConfirmation(final Team team) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+
+        alertDialogBuilder.setTitle("Delete");
+        alertDialogBuilder.setMessage("Are you sure you want to delete \"" + team.getName() + "\"  ?");
+
+        // set positive button YES message
+        alertDialogBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // delete the company and refresh the list
+                mTeamDAO.deleteTeam(team);
+                dialog.dismiss();
+                Toast.makeText(TeamOptions.this.getActivity(), "Team deleted successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TeamOptions.this.getActivity(),HomepageActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+        // set neutral button OK
+        alertDialogBuilder.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Dismiss the dialog
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show alert
+        alertDialog.show();
     }
 
 }

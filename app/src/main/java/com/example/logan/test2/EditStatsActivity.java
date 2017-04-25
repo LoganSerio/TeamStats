@@ -2,10 +2,11 @@ package com.example.logan.test2;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -13,17 +14,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class EditStatsActivity extends AppCompatActivity {
-    public TreeMap<String, TreeMap<String,String>> map;
     Button btnSaveStats;
-    public ArrayList<String> editList;
+    public ArrayList<EditText> editList;
     PositionDAO mPositionDAO;
     StatisticDAO mStatisticDAO;
     ArrayList<Position> posList;
     ArrayList<Statistic> statList;
+    int size = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +34,22 @@ public class EditStatsActivity extends AppCompatActivity {
         btnSaveStats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                statList = new ArrayList<Statistic>(getStatList(posList,statList));
-                mStatisticDAO.updateStatistics(statList);
+                statList = new ArrayList<Statistic>(getStatList(posList));
+                for (Statistic stats : statList) {
+                    mStatisticDAO.updateStatistics(stats);
+                }
                 Intent intent = new Intent(EditStatsActivity.this,TeamPage.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Team team = (Team) getIntent().getSerializableExtra("Team");
                 intent.putExtra("Team",team);
                 startActivity(intent);
+                finish();
             }
         });
 
-        editList = new ArrayList<String>();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+        editList = new ArrayList<EditText>();
         Team team = (Team) getIntent().getSerializableExtra("Team");
         String name = team.getName();
         TextView tvTN = (TextView) findViewById(R.id.tvTeamName);
@@ -79,25 +83,25 @@ public class EditStatsActivity extends AppCompatActivity {
                 tv2.setTextSize(25);
                 tv1.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
                 tv2.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
-                tv2.setGravity(Gravity.CENTER);
-                editList.add(tv2.getText().toString());
+                tv2.setGravity(Gravity.START);
+                editList.add(tv2);
                 tr.addView(tv1);
                 tr.addView(tv2);
                 tableLayout.addView(tr);
             }
         }
     }
-    private ArrayList<Statistic> getStatList(ArrayList<Position> posOld,ArrayList<Statistic> statOld) {
-        ArrayList<Statistic> statNew = new ArrayList<>(statOld);
+    private ArrayList<Statistic> getStatList(ArrayList<Position> posOld) {
+        ArrayList<Statistic> statNew = new ArrayList<>();
         for (Position pos : posOld) {
-            int count = 0;
+            ArrayList<Statistic> statOld = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
             for (Statistic stat : statOld) {
-                //Statistic newStat = statOld.get(count);
-                stat.setStatisticValue(editList.get(count));
-                statNew.add(count,stat);
-                count++;
+                stat.setStatisticValue(editList.get(size).getText().toString());
+                statNew.add(stat);
+                size++;
             }
         }
+        System.out.println(statNew);
         return statNew;
     }
 }
