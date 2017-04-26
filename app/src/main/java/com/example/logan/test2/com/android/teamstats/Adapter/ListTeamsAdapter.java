@@ -61,12 +61,12 @@ public class ListTeamsAdapter extends BaseAdapter {
     @Override
     /**
      * A method that gets a View for the desired position.
-     * @param position The position of the item within the adapter's data set of the item whose view we want.
+     * @param index The position of the item within the adapter's data set of the item whose view we want.
      * @param convertView The old view to reuse, if possible.
      * @param parent The parent that this view will eventually be attached to.
      * @return the View for the desired position.
      */
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int index, View convertView, ViewGroup parent) {
         View v = convertView;
         ViewHolder holder;
         if(v == null) {
@@ -79,8 +79,7 @@ public class ListTeamsAdapter extends BaseAdapter {
             holder = (ViewHolder) v.getTag();
         }
 
-        // fill row data
-        Team currentItem = getItem(position);
+        Team currentItem = getItem(index);
         if(currentItem != null) {
             holder.txtTeamName.setText(currentItem.getName());
 
@@ -104,6 +103,9 @@ public class ListTeamsAdapter extends BaseAdapter {
         this.items = mItems;
     }
 
+    /**
+     * Keeps track of the views in the activity so the program doesn't have to look them up multiple times
+     */
     class ViewHolder {
         TextView txtTeamName;
     }
