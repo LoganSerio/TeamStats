@@ -44,32 +44,34 @@ public class TeamOverview extends Fragment {
         tableLayout = (TableLayout) rootView.findViewById(R.id.tb);
         TableRow tr;
         mPositionDAO = new PositionDAO(getActivity());
-        posList = (ArrayList<Position>) mPositionDAO.getPositionsOfTeam(team.getId());
-        for (Position pos : posList) {
-            mStatisticDAO = new StatisticDAO(getActivity());
-            statList = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
-            final TextView tv = new TextView(getActivity());
-            TableRow tr1 = new TableRow(getActivity());
-            tv.setText(pos.getPositionName());
-            tv.setTypeface(null, Typeface.BOLD_ITALIC);
-            tv.setTextSize(34);
-            tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT, 1));
-            tr1.addView(tv);
-            tableLayout.addView(tr1);
-            for (Statistic stat : statList) {
-                tr = new TableRow(getActivity());
-                final TextView tv1 = new TextView(getActivity());
-                final TextView tv2 = new TextView(getActivity());
-                tv1.setText(stat.getStatisticName()+":");
-                tv2.setText(stat.getStatisticValue());
-                tv1.setTextSize(25);
-                tv2.setTextSize(25);
-                tv1.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
-                tv2.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
-                tv2.setGravity(Gravity.CENTER);
-                tr.addView(tv1);
-                tr.addView(tv2);
-                tableLayout.addView(tr);
+        if (mPositionDAO.getPositionsOfTeam(team.getId()) != null) {
+            posList = (ArrayList<Position>) mPositionDAO.getPositionsOfTeam(team.getId());
+            for (Position pos : posList) {
+                mStatisticDAO = new StatisticDAO(getActivity());
+                statList = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
+                final TextView tv = new TextView(getActivity());
+                TableRow tr1 = new TableRow(getActivity());
+                tv.setText(pos.getPositionName());
+                tv.setTypeface(null, Typeface.BOLD_ITALIC);
+                tv.setTextSize(34);
+                tv.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.MATCH_PARENT, 1));
+                tr1.addView(tv);
+                tableLayout.addView(tr1);
+                for (Statistic stat : statList) {
+                    tr = new TableRow(getActivity());
+                    final TextView tv1 = new TextView(getActivity());
+                    final TextView tv2 = new TextView(getActivity());
+                    tv1.setText(stat.getStatisticName() + ":");
+                    tv2.setText(stat.getStatisticValue());
+                    tv1.setTextSize(25);
+                    tv2.setTextSize(25);
+                    tv1.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
+                    tv2.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.MATCH_PARENT, 1));
+                    tv2.setGravity(Gravity.CENTER);
+                    tr.addView(tv1);
+                    tr.addView(tv2);
+                    tableLayout.addView(tr);
+                }
             }
         }
         return rootView;
