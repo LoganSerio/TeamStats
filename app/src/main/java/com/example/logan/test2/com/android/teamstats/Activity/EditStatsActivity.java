@@ -22,6 +22,9 @@ import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;
 
 import java.util.ArrayList;
 
+/**
+ * A class that creates the activity for editing stats on a specific team's team page
+ */
 public class EditStatsActivity extends AppCompatActivity {
     Button btnSaveStats;
     public ArrayList<EditText> editList;
@@ -31,6 +34,10 @@ public class EditStatsActivity extends AppCompatActivity {
     ArrayList<Statistic> statList;
     int size = 0;
 
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app in case the app needs to be re-initialized
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +103,12 @@ public class EditStatsActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Looks at stats by their correlating position and returns all the user inputted stats
+     * @param posOld the positions list
+     * @return a new stat list containing the stats inputted by user
+     */
     private ArrayList<Statistic> getStatList(ArrayList<Position> posOld) {
         ArrayList<Statistic> statNew = new ArrayList<>();
         for (Position pos : posOld) {

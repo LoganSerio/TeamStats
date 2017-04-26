@@ -25,6 +25,9 @@ import java.util.List;
 
 import static com.example.logan.test2.com.android.teamstats.Activity.ListPositionsActivity.REQUEST_CODE_ADD_POSITION;
 
+/**
+ * A class that lists all the created statistics of a position, none listed if no statistics have been created
+ */
 public class ListStatisticsActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener {
 
     public static final String TAG = "ListStatisticsActivity";
@@ -34,36 +37,20 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
     private ImageButton btnAddStatistic;
     private Button btnBack;
     private Button btnFinish;
-
     private ListStatisticsAdapter adapter;
     private List<Statistic> listStatistics;
     private StatisticDAO statisticDao;
     long positionId;
     Position position;
 
+    /**
+     * Initializes the activity and displays it on the device's screen
+     * @param savedInstanceState saves the state of the app in case the app needs to be re-initialized
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_statistics);
-
-        // initialize the values
-        initViews();
-
-        // get the position id
-        statisticDao = new StatisticDAO(this);
-        position = (Position) getIntent().getSerializableExtra("Position");
-        positionId = position.getId();
-        adapter = new ListStatisticsAdapter(this, 0, listStatistics);
-        if (adapter != null) {
-            listStatistics = statisticDao.getStatisticsOfPosition(positionId); //moved this from on create
-            adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics); //^^same
-            listViewStatistics.setAdapter(adapter); // ^^same
-            adapter.setItems(listStatistics); //adds the positions to the listview
-            adapter.notifyDataSetChanged(); //updates listview
-        }
-    }
-
-    private void initViews() {
         this.listViewStatistics = (ListView) findViewById(R.id.list_statistics);
         this.txtEmptyListStatistics = (TextView) findViewById(R.id.txt_empty_list_statistics);
         this.btnAddStatistic = (ImageButton) findViewById(R.id.btn_add_statistic);
@@ -73,39 +60,55 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         this.btnFinish = (Button) findViewById(R.id.btn_finish);
         this.btnBack.setOnClickListener(this);
         this.btnFinish.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_add_statistic:
-                Intent intent = new Intent(this, AddStatisticsActivity.class);
-                intent.putExtra("Position", position);
-                startActivityForResult(intent, REQUEST_CODE_ADD_POSITION); //sends request code to addpositions
-                break;
-            case R.id.btn_back:
-                setResult(RESULT_OK);
-                finish();
-                break;
-            case R.id.btn_finish:
-                showFinishDialogConfirmation();
-            default:
-                break;
+        statisticDao = new StatisticDAO(this);
+        position = (Position) getIntent().getSerializableExtra("Position");
+        positionId = position.getId();
+        adapter = new ListStatisticsAdapter(this, 0, listStatistics);
+        if (adapter != null) {
+            listStatistics = statisticDao.getStatisticsOfPosition(positionId);
+            adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics);
+            listViewStatistics.setAdapter(adapter);
+            adapter.setItems(listStatistics);
+            adapter.notifyDataSetChanged();
         }
     }
 
+    /**
+     * Adds a statistic to the list view, goes back to the positions list if back is hit and
+     * makes the finish creating team pop up appear if the finish button is clicked
+     * @param v a view
+     */
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.btn_add_statistic){
+            Intent intent = new Intent(this, AddStatisticsActivity.class);
+            intent.putExtra("Position", position);
+            startActivityForResult(intent, REQUEST_CODE_ADD_POSITION);
+        }
+        else if(v.getId() == R.id.btn_back) {
+            setResult(RESULT_OK);
+            finish();
+        }
+        else
+            showFinishDialogConfirmation();
+        }
+
+    /**
+     * Starts a new activity and expects to get the results of the activity back
+     * @param requestCode identify from which Intent you came back
+     * @param resultCode code that the activity that it starts from returnz
+     * @param data data from intent
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ADD_STATISTIC) {
             if (resultCode == RESULT_OK) {
-                //refresh the listView
                 if (listStatistics == null || !listStatistics.isEmpty()) {
                     listStatistics = new ArrayList<Statistic>();
                 }
                 if (statisticDao == null)
                     statisticDao = new StatisticDAO(this);
                 listStatistics = statisticDao.getStatisticsOfPosition(positionId);
-                // if the adapter is null, instantiate it
                 if (adapter == null) {
                     adapter = new ListStatisticsAdapter(this, 0, listStatistics);
                     listViewStatistics.setAdapter(adapter);
@@ -114,23 +117,35 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
                         listViewStatistics.setVisibility(View.VISIBLE);
                     }
                 } else {
-                    listStatistics = statisticDao.getStatisticsOfPosition(positionId); //moved this from on create
-                    adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics); //^^same
-                    listViewStatistics.setAdapter(adapter); // ^^same
-                    adapter.setItems(listStatistics); //adds the positions to the listview
-                    adapter.notifyDataSetChanged(); //updates listview
+                    listStatistics = statisticDao.getStatisticsOfPosition(positionId);
+                    adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics);
+                    listViewStatistics.setAdapter(adapter);
+                    adapter.setItems(listStatistics);
+                    adapter.notifyDataSetChanged();
                 }
             }
         } else
             super.onActivityResult(requestCode, resultCode, data);
     }
 
+    /**
+     * Cleans app up before moving on to another activity
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
         statisticDao.close();
     }
 
+    /**
+     * When an item is long clicked, they see the delete dialog pop up asking if they want to delete
+     * a stat
+     * @param parent where the long click happened
+     * @param view a view
+     * @param index the index of the stat that was clicked
+     * @param id the stat id
+     * @return true if the stat was deleted
+     */
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int index, long id) {
         Statistic clickedStatistic = adapter.getItem(index);
@@ -139,24 +154,21 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         return true;
     }
 
+    /**
+     * A dialog that shows up if a position is long clicked and deletes it if yes is clicked
+     * @param statistic a stat
+     */
     private void showDeleteDialogConfirmation(final Statistic statistic) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        //Set the title and message of the delete confirmation alert
         alertDialogBuilder.setTitle("Delete");
         alertDialogBuilder.setMessage("Are you sure you want to delete the statistic \""
-                        + statistic.getStatisticName() + " "
-                        + "\"");
-
-        // set positive button YES message
+                + statistic.getStatisticName() + " " + "\"");
         alertDialogBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // delete the position and refresh the list
                 if (statisticDao != null) {
                     statisticDao.deleteStatistic(statistic);
-
-                    //refresh the listView
                     listStatistics.remove(statistic);
                     if (listStatistics.isEmpty()) {
                         listViewStatistics.setVisibility(View.GONE);
@@ -167,31 +179,26 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
                 }
                 dialog.dismiss();
                 Toast.makeText(ListStatisticsActivity.this, "Statistic deleted successfully", Toast.LENGTH_SHORT).show();
-
             }
         });
         alertDialogBuilder.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Dismiss the dialog
                 dialog.dismiss();
             }
         });
-
         AlertDialog alertDialog = alertDialogBuilder.create();
-        // show alert
         alertDialog.show();
     }
 
+    /**
+     * Appears if the finish button is clicked, asking the user if they are done creating their team
+     */
     private void showFinishDialogConfirmation() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-
-        //Set the title and message of the delete confirmation alert
         alertDialogBuilder.setTitle("Finish");
         alertDialogBuilder.setMessage("This action will save your team and send you back to the homepage. Are you sure you want to continue?");
-
-        // set positive button YES message
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
             @Override
