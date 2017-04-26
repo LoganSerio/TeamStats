@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,27 +7,30 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A class that connects to the team data access object.
  */
-class TeamDAO {
+public class TeamDAO {
     public static final String TAG = "TeamDAO";
-    private SQLiteDatabase mDatabase;
-    private DBHelper mDbHelper;
-    private Context mContext;
-    private String[] mAllColumns = { DBHelper.COLUMN_TEAM_ID,
-            DBHelper.COLUMN_TEAM_NAME };
+    private SQLiteDatabase database;
+    private DatabaseHelper databaseHelper;
+    private Context context;
+    private String[] allColumns = { DatabaseHelper.COLUMN_TEAM_ID,
+            DatabaseHelper.COLUMN_TEAM_NAME };
 
     /**
      * Creates a team data access object.
      * @param context The request to the database.
      */
     public TeamDAO(Context context) {
-        this.mContext = context;
-        mDbHelper = new DBHelper(context); //right here
+        this.context = context;
+        databaseHelper = new DatabaseHelper(context); //right here
         // open the database
         try {
             open();
@@ -42,14 +45,14 @@ class TeamDAO {
      * @throws SQLException
      */
     public void open() throws SQLException {
-        mDatabase = mDbHelper.getWritableDatabase();
+        database = databaseHelper.getWritableDatabase();
     }
 
     /**
      * Closes the database helper.
      */
     public void close() {
-        mDbHelper.close();
+        databaseHelper.close();
     }
 
     /**
@@ -59,11 +62,11 @@ class TeamDAO {
      */
     public Team createTeam(String name) {
         ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_TEAM_NAME, name);
-        long insertId = mDatabase
-                .insert(DBHelper.TABLE_TEAMS, null, values);
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_TEAMS, mAllColumns,
-                DBHelper.COLUMN_TEAM_ID + " = " + insertId, null, null,
+        values.put(DatabaseHelper.COLUMN_TEAM_NAME, name);
+        long insertId = database
+                .insert(DatabaseHelper.TABLE_TEAMS, null, values);
+        Cursor cursor = database.query(DatabaseHelper.TABLE_TEAMS, allColumns,
+                DatabaseHelper.COLUMN_TEAM_ID + " = " + insertId, null, null,
                 null, null);
         cursor.moveToFirst();
         Team newTeam = cursorToTeam(cursor);
@@ -77,7 +80,7 @@ class TeamDAO {
      */
     public void deleteTeam(Team team) {
         long id = team.getId();
-        PositionDAO positionDao = new PositionDAO(mContext);
+        PositionDAO positionDao = new PositionDAO(context);
         List<Position> listPositions = positionDao.getPositionsOfTeam(id);
         if (listPositions != null && !listPositions.isEmpty()) {
             for (Position e : listPositions) {
@@ -86,7 +89,7 @@ class TeamDAO {
         }
 
         System.out.println("the deleted team has the id: " + id);
-        mDatabase.delete(DBHelper.TABLE_TEAMS, DBHelper.COLUMN_TEAM_ID
+        database.delete(DatabaseHelper.TABLE_TEAMS, DatabaseHelper.COLUMN_TEAM_ID
                 + " = " + id, null);
     }
 
@@ -97,7 +100,7 @@ class TeamDAO {
     public List<Team> getAllTeams() {
         List<Team> listTeams = new ArrayList<Team>();
 
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_TEAMS, mAllColumns,
+        Cursor cursor = database.query(DatabaseHelper.TABLE_TEAMS, allColumns,
                 null, null, null, null, null);
 
         if (cursor != null) { //drop down a line
@@ -118,8 +121,8 @@ class TeamDAO {
      * @return the team associated with the desired ID.
      */
     public Team getTeamById(long id) {
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_TEAMS, mAllColumns,
-                DBHelper.COLUMN_TEAM_ID + " = ?",
+        Cursor cursor = database.query(DatabaseHelper.TABLE_TEAMS, allColumns,
+                DatabaseHelper.COLUMN_TEAM_ID + " = ?",
                 new String[] { String.valueOf(id) }, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();

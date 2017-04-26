@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,8 +9,8 @@ import android.util.Log;
 /**
  * Creates a helper class for connecting to the database.
  */
-class DBHelper extends SQLiteOpenHelper {
-    public static final String TAG = "DBHelper";
+public class DatabaseHelper extends SQLiteOpenHelper {
+    public static final String TAG = "DatabaseHelper";
 
     // teams table
     public static final String TABLE_TEAMS = "teams";
@@ -56,7 +56,7 @@ class DBHelper extends SQLiteOpenHelper {
             +");";
 
 
-    public DBHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

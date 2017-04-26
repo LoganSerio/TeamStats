@@ -5,7 +5,7 @@
     android:id="@+id/activity_settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.logan.test2.SettingsActivity"
+    tools:context="com.example.logan.test2.com.android.teamstats.Activity.SettingsActivity"
     android:background="@color/matdark">
 
     <Button

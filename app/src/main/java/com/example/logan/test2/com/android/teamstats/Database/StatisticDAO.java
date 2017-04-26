@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,26 +7,29 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-class StatisticDAO {
+public class StatisticDAO {
     public static final String TAG = "StatisticDAO";
 
-    private Context mContext;
+    private Context context;
 
     // Database fields
-    private SQLiteDatabase mDatabase;
-    private DBHelper mDbHelper;
-    private String[] mAllColumns = { DBHelper.COLUMN_STATISTIC_ID,
-            DBHelper.COLUMN_STATISTIC_NAME,
-            DBHelper.COLUMN_STATISTIC_VALUE,
-            DBHelper.COLUMN_STATISTIC_POSITION_ID };
+    private SQLiteDatabase database;
+    private DatabaseHelper databaseHelper;
+    private String[] allColumns = { DatabaseHelper.COLUMN_STATISTIC_ID,
+            DatabaseHelper.COLUMN_STATISTIC_NAME,
+            DatabaseHelper.COLUMN_STATISTIC_VALUE,
+            DatabaseHelper.COLUMN_STATISTIC_POSITION_ID };
 
     public StatisticDAO(Context context) {
-        mDbHelper = new DBHelper(context);
-        this.mContext = context;
+        databaseHelper = new DatabaseHelper(context);
+        this.context = context;
         // open the database
         try {
             open();
@@ -37,22 +40,22 @@ class StatisticDAO {
     }
 
     public void open() throws SQLException {
-        mDatabase = mDbHelper.getWritableDatabase();
+        database = databaseHelper.getWritableDatabase();
     }
 
     public void close() {
-        mDbHelper.close();
+        databaseHelper.close();
     }
 
     public Statistic createStatistic(String statisticName, String statisticValue, long positionId) {
         ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_STATISTIC_NAME, statisticName);
-        values.put(DBHelper.COLUMN_STATISTIC_VALUE, statisticValue);
-        values.put(DBHelper.COLUMN_STATISTIC_POSITION_ID, positionId);
-        long insertId = mDatabase
-                .insert(DBHelper.TABLE_STATISTICS, null, values);
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_STATISTICS, mAllColumns,
-                DBHelper.COLUMN_STATISTIC_ID + " = " + insertId, null, null,
+        values.put(DatabaseHelper.COLUMN_STATISTIC_NAME, statisticName);
+        values.put(DatabaseHelper.COLUMN_STATISTIC_VALUE, statisticValue);
+        values.put(DatabaseHelper.COLUMN_STATISTIC_POSITION_ID, positionId);
+        long insertId = database
+                .insert(DatabaseHelper.TABLE_STATISTICS, null, values);
+        Cursor cursor = database.query(DatabaseHelper.TABLE_STATISTICS, allColumns,
+                DatabaseHelper.COLUMN_STATISTIC_ID + " = " + insertId, null, null,
                 null, null);
         cursor.moveToFirst();
         Statistic newStatistic = cursorToStatistic(cursor);
@@ -63,13 +66,13 @@ class StatisticDAO {
     public void updateStatistics(Statistic stat) {
         ContentValues values = new ContentValues();
         values.put("statistic_value", stat.getStatisticValue());
-        mDatabase.update("statistics", values, DBHelper.COLUMN_STATISTIC_ID+"="+stat.getId(), null);
+        database.update("statistics", values, DatabaseHelper.COLUMN_STATISTIC_ID+"="+stat.getId(), null);
     }
 
     public void deleteStatistic(Statistic statistic) {
         long id = statistic.getId();
         System.out.println("the deleted statistic has the id: " + id);
-        mDatabase.delete(DBHelper.TABLE_STATISTICS, DBHelper.COLUMN_STATISTIC_ID
+        database.delete(DatabaseHelper.TABLE_STATISTICS, DatabaseHelper.COLUMN_STATISTIC_ID
                 + " = " + id, null);
     }
 
@@ -77,8 +80,8 @@ class StatisticDAO {
     public List<Statistic> getStatisticsOfPosition(long positionId) {
         List<Statistic> listStatistics = new ArrayList<Statistic>();
 
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_STATISTICS, mAllColumns,
-                DBHelper.COLUMN_STATISTIC_POSITION_ID + " = ?",
+        Cursor cursor = database.query(DatabaseHelper.TABLE_STATISTICS, allColumns,
+                DatabaseHelper.COLUMN_STATISTIC_POSITION_ID + " = ?",
                 new String[] { String.valueOf(positionId) }, null, null, null);
 
         cursor.moveToFirst();
@@ -102,7 +105,7 @@ class StatisticDAO {
 
         // get The position by id
         long positionId = cursor.getLong(3);
-        PositionDAO dao = new PositionDAO(mContext);
+        PositionDAO dao = new PositionDAO(context);
         Position position = dao.getPositionById(positionId);
         if (position != null)
             statistic.setPosition(position);

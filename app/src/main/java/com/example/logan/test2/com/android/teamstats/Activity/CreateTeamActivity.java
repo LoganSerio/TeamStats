@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.TeamDAO;
+
 /**
  * A class that creates the activity for Creating a team
  */
 public class CreateTeamActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = "CreateTeamActivity";
-    private EditText mTxtTeamName;
-    private Button mBtnAdd;
-    private TeamDAO mTeamDao;
+    private EditText txtTeamName;
+    private Button btnAdd;
+    private TeamDAO teamDao;
 
     @Override
     /**
@@ -31,16 +35,16 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
 
         initViews();
 
-        this.mTeamDao = new TeamDAO(this);
+        this.teamDao = new TeamDAO(this);
     }
 
     /**
      * Initializes components on the activity page.
      */
     private void initViews() {
-        this.mTxtTeamName = (EditText) findViewById(R.id.txt_team_name);
-        this.mBtnAdd = (Button) findViewById(R.id.btn_add);
-        this.mBtnAdd.setOnClickListener(this);
+        this.txtTeamName = (EditText) findViewById(R.id.txt_team_name);
+        this.btnAdd = (Button) findViewById(R.id.btn_add);
+        this.btnAdd.setOnClickListener(this);
     }
 
     @Override
@@ -50,9 +54,9 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
-                Editable teamName = mTxtTeamName.getText();
+                Editable teamName = txtTeamName.getText();
                 if (!TextUtils.isEmpty(teamName)) {
-                    Team createdTeam = mTeamDao.createTeam(teamName.toString());
+                    Team createdTeam = teamDao.createTeam(teamName.toString());
                     Log.d(TAG, "added team : "+ createdTeam.getName());
                     Intent intent = new Intent(CreateTeamActivity.this,ListPositionsActivity.class);
                     intent.putExtra("Team", createdTeam);
@@ -77,6 +81,6 @@ public class CreateTeamActivity extends AppCompatActivity implements View.OnClic
      */
     protected void onDestroy() {
         super.onDestroy();
-        mTeamDao.close();
+        teamDao.close();
     }
 }
