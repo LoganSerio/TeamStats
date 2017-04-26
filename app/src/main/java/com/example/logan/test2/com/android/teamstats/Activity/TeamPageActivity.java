@@ -23,11 +23,11 @@ public class TeamPageActivity extends AppCompatActivity {
     private SectionsPagerAdapter sectionsPagerAdapter;
     private ViewPager viewPager;
 
-    @Override
     /**
      * Initializes the activity and displays it on the device's screen
      * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
      */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_page);
@@ -42,23 +42,22 @@ public class TeamPageActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    @Override
     /**
      * Initializes the menu for the team page.
      * @param menu The menu in which items are placed.
      * @return returns true if the menu is displayed or false otherwise.
      */
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.menu_team_page, menu);
         return true;
     }
 
-    @Override
     /**
      * A method that calls when a menu item has been selected.
      * @item The MenuItem selected.
      * @return returns false to continue browsing the menu or true in the event an option was chosen.
      */
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -78,46 +77,45 @@ public class TeamPageActivity extends AppCompatActivity {
             super(fm);
         }
 
-        @Override
         /**
          * A method that gets the fragment item.
-         * @param the position of the item
+         * @param position the position of the item
          * @return a Fragment object
          */
+        @Override
         public Fragment getItem(int position) {
-            switch (position){
-                case 0:
-                    TeamOverview tover = new TeamOverview();
-                    return tover;
-                case 1:
-                    TeamOptions top = new TeamOptions();
-                    return top;
-                default:
-                    return null;
+            if(position == 0) {
+                TeamOverview tover = new TeamOverview();
+                return tover;
             }
+            else if(position == 1) {
+                TeamOptions top = new TeamOptions();
+                return top;
+            }
+            return null;
         }
 
-        @Override
         /**
          * Gets the page size.
          * @return Two total pages.
          */
+        @Override
         public int getCount() {
             return 2;
         }
 
-        @Override
         /**
          * A method that gets the title of the page as either overview or options.
          * @param position The position of the desired page title.
          * @return returns a CharSequence of either "Team Overview" or "Team Options".
          */
+        @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Team Overview";
-                case 1:
-                    return "Team Options";
+            if(position == 0) {
+                return "Team Overview";
+            }
+            else if (position == 1) {
+                return "Team Options";
             }
             return null;
         }

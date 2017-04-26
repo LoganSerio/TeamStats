@@ -47,7 +47,7 @@
         android:layout_below="@+id/txt_position_name"
         android:layout_marginTop="31dp"
         android:background="?android:attr/colorControlActivated"
-        android:backgroundTint="#88BBD6"
+        android:backgroundTint="#88bbd6"
         android:gravity="center"
         android:paddingBottom="2dp"
         android:paddingLeft="12dp"

@@ -56,6 +56,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             +");";
 
 
+    /**
+     * A constructor for the DatabaseHelper class
+     * @param context
+     */
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -79,8 +83,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      * @param newVersion The new version of the database.
      */
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.w(TAG,
-                "Upgrading the database from version " + oldVersion + " to "+ newVersion);
+        //Adds log message for debugging purposes
+        Log.w(TAG, "Upgrading the database from version " + oldVersion + " to "+ newVersion);
         // clear all data
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_POSITIONS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEAMS);
