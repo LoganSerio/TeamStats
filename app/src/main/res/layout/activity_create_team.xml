@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/matdark"
 
-    tools:context="com.example.logan.test2.CreateTeamActivity">
+    tools:context="com.example.logan.test2.com.android.teamstats.Activity.CreateTeamActivity">
 
     <TextView
         android:id="@+id/textView2"

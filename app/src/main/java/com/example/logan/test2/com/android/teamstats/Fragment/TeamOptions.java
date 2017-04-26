@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,6 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Activity.EditStatsActivity;
+import com.example.logan.test2.com.android.teamstats.Activity.HomepageActivity;
+import com.example.logan.test2.com.android.teamstats.Activity.ListPositionsActivity;
+import com.example.logan.test2.com.android.teamstats.Database.TeamDAO;
+
 
 /**
  * The page that deals with a users ability to update a team.
@@ -20,7 +27,7 @@ public class TeamOptions extends Fragment{
     Button btnEditPositions;
     Button btnEditStatistics;
     Button btnDeleteTeam;
-    TeamDAO mTeamDAO;
+    TeamDAO teamDAO;
 
     @Override
     /**
@@ -35,7 +42,7 @@ public class TeamOptions extends Fragment{
         btnEditPositions = (Button) rootView.findViewById(R.id.editPositionButton);
         btnEditStatistics = (Button) rootView.findViewById(R.id.editStatsButton);
         btnDeleteTeam = (Button) rootView.findViewById(R.id.deleteTeamButton);
-        mTeamDAO = new TeamDAO(getActivity());
+        teamDAO = new TeamDAO(getActivity());
 
         btnEditPositions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +92,7 @@ public class TeamOptions extends Fragment{
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // delete the team and refresh the list
-                mTeamDAO.deleteTeam(team);
+                teamDAO.deleteTeam(team);
                 dialog.dismiss();
                 Toast.makeText(TeamOptions.this.getActivity(), "Team deleted successfully", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(TeamOptions.this.getActivity(),HomepageActivity.class);

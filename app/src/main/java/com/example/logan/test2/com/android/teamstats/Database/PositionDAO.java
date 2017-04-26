@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,23 +7,26 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
-class PositionDAO {
+public class PositionDAO {
     public static final String TAG = "PositionDAO";
-    private Context mContext;
+    private Context context;
 
     // Database fields
-    private SQLiteDatabase mDatabase;
-    private DBHelper mDbHelper;
-    private String[] mAllColumns = { DBHelper.COLUMN_POSITION_ID,
-            DBHelper.COLUMN_POSITION_NAME };
+    private SQLiteDatabase database;
+    private DatabaseHelper databaseHelper;
+    private String[] allColumns = { DatabaseHelper.COLUMN_POSITION_ID,
+            DatabaseHelper.COLUMN_POSITION_NAME };
 
     public PositionDAO(Context context) {
-        mDbHelper = new DBHelper(context);
-        this.mContext = context;
+        databaseHelper = new DatabaseHelper(context);
+        this.context = context;
         // open the database
         try {
             open();
@@ -34,21 +37,21 @@ class PositionDAO {
     }
 
     public void open() throws SQLException {
-        mDatabase = mDbHelper.getWritableDatabase();
+        database = databaseHelper.getWritableDatabase();
     }
 
     public void close() {
-        mDbHelper.close();
+        databaseHelper.close();
     }
 
     public Position createPosition(String positionName, long teamId) {
         ContentValues values = new ContentValues();
-        values.put(DBHelper.COLUMN_POSITION_NAME, positionName);
-        values.put(DBHelper.COLUMN_POSITION_TEAM_ID, teamId);
-        long insertId = mDatabase
-                .insert(DBHelper.TABLE_POSITIONS, null, values);
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
-                DBHelper.COLUMN_POSITION_ID + " = " + insertId, null, null,
+        values.put(DatabaseHelper.COLUMN_POSITION_NAME, positionName);
+        values.put(DatabaseHelper.COLUMN_POSITION_TEAM_ID, teamId);
+        long insertId = database
+                .insert(DatabaseHelper.TABLE_POSITIONS, null, values);
+        Cursor cursor = database.query(DatabaseHelper.TABLE_POSITIONS, allColumns,
+                DatabaseHelper.COLUMN_POSITION_ID + " = " + insertId, null, null,
                 null, null);
         cursor.moveToFirst();
         Position newPosition = cursorToPosition(cursor);
@@ -59,15 +62,15 @@ class PositionDAO {
     public void deletePosition(Position position) {
         long id = position.getId();
         System.out.println("the deleted position has the id: " + id);
-        mDatabase.delete(DBHelper.TABLE_POSITIONS, DBHelper.COLUMN_POSITION_ID
+        database.delete(DatabaseHelper.TABLE_POSITIONS, DatabaseHelper.COLUMN_POSITION_ID
                 + " = " + id, null);
     }
 
     public List<Position> getPositionsOfTeam(long teamId) {
         List<Position> listPositions = new ArrayList<Position>();
 
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
-                DBHelper.COLUMN_POSITION_TEAM_ID + " = ?",
+        Cursor cursor = database.query(DatabaseHelper.TABLE_POSITIONS, allColumns,
+                DatabaseHelper.COLUMN_POSITION_TEAM_ID + " = ?",
                 new String[] { String.valueOf(teamId) }, null, null, null);
 
         cursor.moveToFirst();
@@ -88,7 +91,7 @@ class PositionDAO {
         position.setId(cursor.getLong(0));
         position.setPositionName(cursor.getString(1));
         long teamId = cursor.getLong(0);
-        TeamDAO dao = new TeamDAO(mContext);
+        TeamDAO dao = new TeamDAO(context);
         Team team = dao.getTeamById(teamId);
         if (team != null)
             position.setTeam(team);
@@ -97,8 +100,8 @@ class PositionDAO {
     }
 
     public Position getPositionById(long id) {
-        Cursor cursor = mDatabase.query(DBHelper.TABLE_POSITIONS, mAllColumns,
-                DBHelper.COLUMN_POSITION_ID + " = ?",
+        Cursor cursor = database.query(DatabaseHelper.TABLE_POSITIONS, allColumns,
+                DatabaseHelper.COLUMN_POSITION_ID + " = ?",
                 new String[] { String.valueOf(id) }, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();

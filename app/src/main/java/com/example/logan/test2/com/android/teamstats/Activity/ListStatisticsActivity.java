@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,24 +14,30 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.logan.test2.com.android.teamstats.Adapter.ListStatisticsAdapter;
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
+import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.logan.test2.ListPositionsActivity.REQUEST_CODE_ADD_POSITION;
+import static com.example.logan.test2.com.android.teamstats.Activity.ListPositionsActivity.REQUEST_CODE_ADD_POSITION;
 
 public class ListStatisticsActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, View.OnClickListener {
 
     public static final String TAG = "ListStatisticsActivity";
     public static final int REQUEST_CODE_ADD_STATISTIC = 40;
-    private ListView mListViewStatistics;
-    private TextView mTxtEmptyListStatistics;
-    private ImageButton mBtnAddStatistic;
-    private Button mBtnBack;
-    private Button mBtnFinish;
+    private ListView listViewStatistics;
+    private TextView txtEmptyListStatistics;
+    private ImageButton btnAddStatistic;
+    private Button btnBack;
+    private Button btnFinish;
 
-    private ListStatisticsAdapter mAdapter;
-    private List<Statistic> mListStatistics;
-    private StatisticDAO mStatisticDao;
+    private ListStatisticsAdapter adapter;
+    private List<Statistic> listStatistics;
+    private StatisticDAO statisticDao;
     long positionId;
     Position position;
 
@@ -44,29 +50,29 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         initViews();
 
         // get the position id
-        mStatisticDao = new StatisticDAO(this);
+        statisticDao = new StatisticDAO(this);
         position = (Position) getIntent().getSerializableExtra("Position");
         positionId = position.getId();
-        mAdapter = new ListStatisticsAdapter(this, 0, mListStatistics);
-        if (mAdapter != null) {
-            mListStatistics = mStatisticDao.getStatisticsOfPosition(positionId); //moved this from on create
-            mAdapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, mListStatistics); //^^same
-            mListViewStatistics.setAdapter(mAdapter); // ^^same
-            mAdapter.setItems(mListStatistics); //adds the positions to the listview
-            mAdapter.notifyDataSetChanged(); //updates listview
+        adapter = new ListStatisticsAdapter(this, 0, listStatistics);
+        if (adapter != null) {
+            listStatistics = statisticDao.getStatisticsOfPosition(positionId); //moved this from on create
+            adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics); //^^same
+            listViewStatistics.setAdapter(adapter); // ^^same
+            adapter.setItems(listStatistics); //adds the positions to the listview
+            adapter.notifyDataSetChanged(); //updates listview
         }
     }
 
     private void initViews() {
-        this.mListViewStatistics = (ListView) findViewById(R.id.list_statistics);
-        this.mTxtEmptyListStatistics = (TextView) findViewById(R.id.txt_empty_list_statistics);
-        this.mBtnAddStatistic = (ImageButton) findViewById(R.id.btn_add_statistic);
-        this.mListViewStatistics.setOnItemLongClickListener(this);
-        this.mBtnAddStatistic.setOnClickListener(this);
-        this.mBtnBack = (Button) findViewById(R.id.btn_back);
-        this.mBtnFinish = (Button) findViewById(R.id.btn_finish);
-        this.mBtnBack.setOnClickListener(this);
-        this.mBtnFinish.setOnClickListener(this);
+        this.listViewStatistics = (ListView) findViewById(R.id.list_statistics);
+        this.txtEmptyListStatistics = (TextView) findViewById(R.id.txt_empty_list_statistics);
+        this.btnAddStatistic = (ImageButton) findViewById(R.id.btn_add_statistic);
+        this.listViewStatistics.setOnItemLongClickListener(this);
+        this.btnAddStatistic.setOnClickListener(this);
+        this.btnBack = (Button) findViewById(R.id.btn_back);
+        this.btnFinish = (Button) findViewById(R.id.btn_finish);
+        this.btnBack.setOnClickListener(this);
+        this.btnFinish.setOnClickListener(this);
     }
 
     @Override
@@ -93,26 +99,26 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
         if (requestCode == REQUEST_CODE_ADD_STATISTIC) {
             if (resultCode == RESULT_OK) {
                 //refresh the listView
-                if (mListStatistics == null || !mListStatistics.isEmpty()) {
-                    mListStatistics = new ArrayList<Statistic>();
+                if (listStatistics == null || !listStatistics.isEmpty()) {
+                    listStatistics = new ArrayList<Statistic>();
                 }
-                if (mStatisticDao == null)
-                    mStatisticDao = new StatisticDAO(this);
-                mListStatistics = mStatisticDao.getStatisticsOfPosition(positionId);
+                if (statisticDao == null)
+                    statisticDao = new StatisticDAO(this);
+                listStatistics = statisticDao.getStatisticsOfPosition(positionId);
                 // if the adapter is null, instantiate it
-                if (mAdapter == null) {
-                    mAdapter = new ListStatisticsAdapter(this, 0, mListStatistics);
-                    mListViewStatistics.setAdapter(mAdapter);
-                    if (mListViewStatistics.getVisibility() != View.VISIBLE) {
-                        mTxtEmptyListStatistics.setVisibility(View.GONE);
-                        mListViewStatistics.setVisibility(View.VISIBLE);
+                if (adapter == null) {
+                    adapter = new ListStatisticsAdapter(this, 0, listStatistics);
+                    listViewStatistics.setAdapter(adapter);
+                    if (listViewStatistics.getVisibility() != View.VISIBLE) {
+                        txtEmptyListStatistics.setVisibility(View.GONE);
+                        listViewStatistics.setVisibility(View.VISIBLE);
                     }
                 } else {
-                    mListStatistics = mStatisticDao.getStatisticsOfPosition(positionId); //moved this from on create
-                    mAdapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, mListStatistics); //^^same
-                    mListViewStatistics.setAdapter(mAdapter); // ^^same
-                    mAdapter.setItems(mListStatistics); //adds the positions to the listview
-                    mAdapter.notifyDataSetChanged(); //updates listview
+                    listStatistics = statisticDao.getStatisticsOfPosition(positionId); //moved this from on create
+                    adapter = new ListStatisticsAdapter(this, R.layout.list_item_statistic, listStatistics); //^^same
+                    listViewStatistics.setAdapter(adapter); // ^^same
+                    adapter.setItems(listStatistics); //adds the positions to the listview
+                    adapter.notifyDataSetChanged(); //updates listview
                 }
             }
         } else
@@ -122,12 +128,12 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mStatisticDao.close();
+        statisticDao.close();
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int index, long id) {
-        Statistic clickedStatistic = mAdapter.getItem(index);
+        Statistic clickedStatistic = adapter.getItem(index);
         Log.d(TAG, "longClickedItem : " + clickedStatistic.getStatisticName());
         showDeleteDialogConfirmation(clickedStatistic);
         return true;
@@ -147,17 +153,17 @@ public class ListStatisticsActivity extends AppCompatActivity implements Adapter
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // delete the position and refresh the list
-                if (mStatisticDao != null) {
-                    mStatisticDao.deleteStatistic(statistic);
+                if (statisticDao != null) {
+                    statisticDao.deleteStatistic(statistic);
 
                     //refresh the listView
-                    mListStatistics.remove(statistic);
-                    if (mListStatistics.isEmpty()) {
-                        mListViewStatistics.setVisibility(View.GONE);
-                        mTxtEmptyListStatistics.setVisibility(View.VISIBLE);
+                    listStatistics.remove(statistic);
+                    if (listStatistics.isEmpty()) {
+                        listViewStatistics.setVisibility(View.GONE);
+                        txtEmptyListStatistics.setVisibility(View.VISIBLE);
                     }
-                    mAdapter.setItems(mListStatistics);
-                    mAdapter.notifyDataSetChanged();
+                    adapter.setItems(listStatistics);
+                    adapter.notifyDataSetChanged();
                 }
                 dialog.dismiss();
                 Toast.makeText(ListStatisticsActivity.this, "Statistic deleted successfully", Toast.LENGTH_SHORT).show();

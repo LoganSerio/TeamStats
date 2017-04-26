@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,13 +13,20 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;
+import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;
+
 import java.util.ArrayList;
 
 public class EditStatsActivity extends AppCompatActivity {
     Button btnSaveStats;
     public ArrayList<EditText> editList;
-    PositionDAO mPositionDAO;
-    StatisticDAO mStatisticDAO;
+    PositionDAO positionDAO;
+    StatisticDAO statisticDAO;
     ArrayList<Position> posList;
     ArrayList<Statistic> statList;
     int size = 0;
@@ -34,9 +41,9 @@ public class EditStatsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 statList = new ArrayList<Statistic>(getStatList(posList));
                 for (Statistic stats : statList) {
-                    mStatisticDAO.updateStatistics(stats);
+                    statisticDAO.updateStatistics(stats);
                 }
-                Intent intent = new Intent(EditStatsActivity.this,TeamPage.class);
+                Intent intent = new Intent(EditStatsActivity.this,TeamPageActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 Team team = (Team) getIntent().getSerializableExtra("Team");
                 intent.putExtra("Team",team);
@@ -58,11 +65,11 @@ public class EditStatsActivity extends AppCompatActivity {
         TableLayout tableLayout;
         tableLayout = (TableLayout) findViewById(R.id.tb);
         TableRow tr;
-        mPositionDAO = new PositionDAO(this);
-        posList = (ArrayList<Position>) mPositionDAO.getPositionsOfTeam(team.getId());
+        positionDAO = new PositionDAO(this);
+        posList = (ArrayList<Position>) positionDAO.getPositionsOfTeam(team.getId());
         for (Position pos : posList) {
-            mStatisticDAO = new StatisticDAO(this);
-            statList = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
+            statisticDAO = new StatisticDAO(this);
+            statList = (ArrayList<Statistic>) statisticDAO.getStatisticsOfPosition(pos.getId());
             final TextView tv = new TextView(this);
             TableRow tr1 = new TableRow(this);
             tv.setText(pos.getPositionName());
@@ -92,7 +99,7 @@ public class EditStatsActivity extends AppCompatActivity {
     private ArrayList<Statistic> getStatList(ArrayList<Position> posOld) {
         ArrayList<Statistic> statNew = new ArrayList<>();
         for (Position pos : posOld) {
-            ArrayList<Statistic> statOld = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
+            ArrayList<Statistic> statOld = (ArrayList<Statistic>) statisticDAO.getStatisticsOfPosition(pos.getId());
             for (Statistic stat : statOld) {
                 stat.setStatisticValue(editList.get(size).getText().toString());
                 statNew.add(stat);

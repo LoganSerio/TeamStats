@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomepageActivity"
+        <activity android:name=".com.android.teamstats.Activity.HomepageActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,24 +16,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".SendFeedbackActivity" />
-        <activity android:name=".AddPositionActivity"
+        <activity android:name=".com.android.teamstats.Activity.SettingsActivity" />
+        <activity android:name=".com.android.teamstats.Activity.SendFeedbackActivity" />
+        <activity android:name=".com.android.teamstats.Activity.AddPositionActivity"
                   android:background="@color/Linen" />
-        <activity android:name=".ListPositionsActivity" />
-        <activity android:name=".ListTeamsActivity" />
+        <activity android:name=".com.android.teamstats.Activity.ListPositionsActivity" />
+        <activity android:name=".com.android.teamstats.Activity.ListTeamsActivity" />
         <activity
-            android:name=".CreateTeamActivity"
+            android:name=".com.android.teamstats.Activity.CreateTeamActivity"
             android:theme="@style/AppTheme.myTheme"
             android:label="Enter Team Name"
             android:background= "@color/Linen"
             />
         <activity
-            android:name=".TeamPage"
+            android:name=".com.android.teamstats.Activity.TeamPageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddStatisticsActivity" />
-        <activity android:name=".ListStatisticsActivity" />
-        <activity android:name=".EditStatsActivity"></activity>
+        <activity android:name=".com.android.teamstats.Activity.AddStatisticsActivity" />
+        <activity android:name=".com.android.teamstats.Activity.ListStatisticsActivity" />
+        <activity android:name=".com.android.teamstats.Activity.EditStatsActivity"></activity>
     </application>
 
 </manifest>

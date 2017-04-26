@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +12,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.logan.test2.com.android.teamstats.Adapter.ListTeamsAdapter;
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.TeamDAO;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,12 +29,12 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     public static final int REQUEST_CODE_ADD_TEAM = 40;
     public static final String EXTRA_ADDED_TEAM = "extra_key_added_team";
 
-    private ListView mListviewTeams;
-    private TextView mTxtEmptyListTeams;
+    private ListView listviewTeams;
+    private TextView txtEmptyListTeams;
 
-    private ListTeamsAdapter mAdapter;
-    private List<Team> mListTeams;
-    private TeamDAO mTeamDao;
+    private ListTeamsAdapter adapter;
+    private List<Team> listTeams;
+    private TeamDAO teamDao;
 
     @Override
     /**
@@ -43,14 +48,14 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         initViews();
 
         // fill the listView
-        mTeamDao = new TeamDAO(this);
-        mListTeams = mTeamDao.getAllTeams();
-        if (mListTeams != null && !mListTeams.isEmpty()) {
-            mAdapter = new ListTeamsAdapter(this, mListTeams);
-            mListviewTeams.setAdapter(mAdapter);
+        teamDao = new TeamDAO(this);
+        listTeams = teamDao.getAllTeams();
+        if (listTeams != null && !listTeams.isEmpty()) {
+            adapter = new ListTeamsAdapter(this, listTeams);
+            listviewTeams.setAdapter(adapter);
         } else {
-            mTxtEmptyListTeams.setVisibility(View.VISIBLE);
-            mListviewTeams.setVisibility(View.GONE);
+            txtEmptyListTeams.setVisibility(View.VISIBLE);
+            listviewTeams.setVisibility(View.GONE);
         }
     }
 
@@ -58,10 +63,10 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      * Initializes the components of the class.
      */
     private void initViews() {
-        this.mListviewTeams = (ListView) findViewById(R.id.list_teams);
-        this.mTxtEmptyListTeams = (TextView) findViewById(R.id.txt_empty_list_teams);
-        this.mListviewTeams.setOnItemClickListener(this);
-        this.mListviewTeams.setOnItemLongClickListener(this);
+        this.listviewTeams = (ListView) findViewById(R.id.list_teams);
+        this.txtEmptyListTeams = (TextView) findViewById(R.id.txt_empty_list_teams);
+        this.listviewTeams.setOnItemClickListener(this);
+        this.listviewTeams.setOnItemLongClickListener(this);
     }
 
     @Override
@@ -78,19 +83,19 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
                 if (data != null) {
                     Team createdTeam = (Team) data.getSerializableExtra(EXTRA_ADDED_TEAM);
                     if (createdTeam != null) {
-                        if (mListTeams == null)
-                            mListTeams = new ArrayList<Team>();
-                        mListTeams.add(createdTeam);
-                        if (mAdapter == null) {
-                            if (mListviewTeams.getVisibility() != View.VISIBLE) {
-                                mListviewTeams.setVisibility(View.VISIBLE);
-                                mTxtEmptyListTeams.setVisibility(View.GONE);
+                        if (listTeams == null)
+                            listTeams = new ArrayList<Team>();
+                        listTeams.add(createdTeam);
+                        if (adapter == null) {
+                            if (listviewTeams.getVisibility() != View.VISIBLE) {
+                                listviewTeams.setVisibility(View.VISIBLE);
+                                txtEmptyListTeams.setVisibility(View.GONE);
                             }
-                            mAdapter = new ListTeamsAdapter(this, mListTeams);
-                            mListviewTeams.setAdapter(mAdapter);
+                            adapter = new ListTeamsAdapter(this, listTeams);
+                            listviewTeams.setAdapter(adapter);
                         } else {
-                            mAdapter.setItems(mListTeams);
-                            mAdapter.notifyDataSetChanged();
+                            adapter.setItems(listTeams);
+                            adapter.notifyDataSetChanged();
                         }
                     }
                 }
@@ -105,7 +110,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      */
     protected void onDestroy() {
         super.onDestroy();
-        mTeamDao.close();
+        teamDao.close();
     }
 
     @Override
@@ -117,9 +122,9 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      * @param id The row id of the item that was clicked.
      * */
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Team clickedTeam = mAdapter.getItem(position);
+        Team clickedTeam = adapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
-        Intent intent = new Intent(this, TeamPage.class);
+        Intent intent = new Intent(this, TeamPageActivity.class);
         intent.putExtra("Team",clickedTeam);
         startActivity(intent);
     }
@@ -134,7 +139,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      * @return returns true is the click was held or false otherwise.
      */
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-        Team clickedTeam = mAdapter.getItem(position);
+        Team clickedTeam = adapter.getItem(position);
         Log.d(TAG, "longClickedItem : " + clickedTeam.getName());
         showDeleteDialogConfirmation(clickedTeam);
         return true;
@@ -155,17 +160,17 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (mTeamDao != null) {
-                    mTeamDao.deleteTeam(clickedTeam);
-                    mListTeams.remove(clickedTeam);
+                if (teamDao != null) {
+                    teamDao.deleteTeam(clickedTeam);
+                    listTeams.remove(clickedTeam);
 
                     //refresh the listView
-                    if (mListTeams.isEmpty()) {
-                        mListviewTeams.setVisibility(View.GONE);
-                        mTxtEmptyListTeams.setVisibility(View.VISIBLE);
+                    if (listTeams.isEmpty()) {
+                        listviewTeams.setVisibility(View.GONE);
+                        txtEmptyListTeams.setVisibility(View.VISIBLE);
                     }
-                    mAdapter.setItems(mListTeams);
-                    mAdapter.notifyDataSetChanged();
+                    adapter.setItems(listTeams);
+                    adapter.notifyDataSetChanged();
                 }
                 dialog.dismiss();
                 Toast.makeText(ListTeamsActivity.this, "Team deleted successfully", Toast.LENGTH_SHORT).show();

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/matdark"
-    tools:context="com.example.logan.test2.HomepageActivity">
+    tools:context="com.example.logan.test2.com.android.teamstats.Activity.HomepageActivity">
 
     <Button
         android:id="@+id/btn_create_team"

@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,14 +11,21 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;
+import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;
+
 import java.util.ArrayList;
 
 /**
  * Displays the team overview to the user.
  */
 public class TeamOverview extends Fragment {
-    PositionDAO mPositionDAO;
-    StatisticDAO mStatisticDAO;
+    PositionDAO positionDAO;
+    StatisticDAO statisticDAO;
     ArrayList<Position> posList;
     ArrayList<Statistic> statList;
 
@@ -43,11 +50,11 @@ public class TeamOverview extends Fragment {
         TableLayout tableLayout;
         tableLayout = (TableLayout) rootView.findViewById(R.id.tb);
         TableRow tr;
-        mPositionDAO = new PositionDAO(getActivity());
-        posList = (ArrayList<Position>) mPositionDAO.getPositionsOfTeam(team.getId());
+        positionDAO = new PositionDAO(getActivity());
+        posList = (ArrayList<Position>) positionDAO.getPositionsOfTeam(team.getId());
         for (Position pos : posList) {
-            mStatisticDAO = new StatisticDAO(getActivity());
-            statList = (ArrayList<Statistic>) mStatisticDAO.getStatisticsOfPosition(pos.getId());
+            statisticDAO = new StatisticDAO(getActivity());
+            statList = (ArrayList<Statistic>) statisticDAO.getStatisticsOfPosition(pos.getId());
             final TextView tv = new TextView(getActivity());
             TableRow tr1 = new TableRow(getActivity());
             tv.setText(pos.getPositionName());

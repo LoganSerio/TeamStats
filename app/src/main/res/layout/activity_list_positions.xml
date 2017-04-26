@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/matdark"
-    tools:context="com.example.logan.test2.ListPositionsActivity">
+    tools:context="com.example.logan.test2.com.android.teamstats.Activity.ListPositionsActivity">
 
     <TextView
         android:id="@+id/txt_header"

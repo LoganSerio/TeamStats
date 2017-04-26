@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
 
 import java.util.List;
 
@@ -15,8 +18,8 @@ import java.util.List;
 public class ListTeamsAdapter extends BaseAdapter {
 
     public static final String TAG = "ListTeamsAdapter";
-    private List<Team> mItems;
-    private LayoutInflater mInflater;
+    private List<Team> items;
+    private LayoutInflater inflater;
 
     /**
      * The adapter that allows for teams to be displayed.
@@ -25,7 +28,7 @@ public class ListTeamsAdapter extends BaseAdapter {
      */
     public ListTeamsAdapter(Context context, List<Team> listTeams) {
         this.setItems(listTeams);
-        this.mInflater = LayoutInflater.from(context);
+        this.inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -67,7 +70,7 @@ public class ListTeamsAdapter extends BaseAdapter {
         View v = convertView;
         ViewHolder holder;
         if(v == null) {
-            v = mInflater.inflate(R.layout.list_item_team, parent, false);
+            v = inflater.inflate(R.layout.list_item_team, parent, false);
             holder = new ViewHolder();
             holder.txtTeamName = (TextView) v.findViewById(R.id.txt_team_name);
             v.setTag(holder);
@@ -90,7 +93,7 @@ public class ListTeamsAdapter extends BaseAdapter {
      * @return A list of items.
      */
     public List<Team> getItems() {
-        return mItems;
+        return items;
     }
 
     /**
@@ -98,7 +101,7 @@ public class ListTeamsAdapter extends BaseAdapter {
      * @param mItems the iteam mTeam is getting set equal to.
      */
     public void setItems(List<Team> mItems) {
-        this.mItems = mItems;
+        this.items = mItems;
     }
 
     class ViewHolder {

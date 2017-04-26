@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/matdark"
-    tools:context="com.example.logan.test2.AddPositionActivity" >
+    tools:context="com.example.logan.test2.com.android.teamstats.Activity.AddPositionActivity" >
 
     <TextView
         android:id="@+id/textView4"
@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:background="?attr/colorPrimary"
         android:gravity="center"
-        android:text="All Statistics"
+        android:text="Add Statistics"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="@color/Linen" />
 
@@ -39,6 +39,9 @@
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txt_statistic_name"
         android:layout_marginTop="55dp"
         android:backgroundTint="#88BBD6"
         android:gravity="center"
@@ -47,9 +50,6 @@
         android:paddingRight="12dp"
         android:paddingTop="2dp"
         android:text="add"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@+id/txt_statistic_name"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

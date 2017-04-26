@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,14 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;
+import com.example.logan.test2.com.android.teamstats.Database.TeamDAO;
+
 public class AddPositionActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String TAG = "AddPositionActivity";
 
-    private EditText mTxtPositionName;
-    private Button mBtnAdd;
-    private TeamDAO mTeamDao;
-    private PositionDAO mPositionDao;
+    private EditText txtPositionName;
+    private Button btnAdd;
+    private TeamDAO teamDao;
+    private PositionDAO positionDao;
     Team team;
     long teamID;
 
@@ -25,29 +31,28 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_position);
-        this.mTeamDao = new TeamDAO(this);
-        this.mPositionDao = new PositionDAO(this);
+        this.teamDao = new TeamDAO(this);
+        this.positionDao = new PositionDAO(this);
 
         initViews();
-
     }
 
     private void initViews() {
-        this.mTxtPositionName = (EditText) findViewById(R.id.txt_position_name);
-        this.mBtnAdd = (Button) findViewById(R.id.btn_add);
-        this.mBtnAdd.setOnClickListener(this);
+        this.txtPositionName = (EditText) findViewById(R.id.txt_position_name);
+        this.btnAdd = (Button) findViewById(R.id.btn_add);
+        this.btnAdd.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
-                Editable positionName = mTxtPositionName.getText();
+                Editable positionName = txtPositionName.getText();
                 if (!TextUtils.isEmpty(positionName)) {
                     // add the team to database
                     team = (Team) getIntent().getSerializableExtra("Team");
                     teamID = team.getId();
-                    Position createdPosition = mPositionDao.createPosition(positionName.toString(), teamID);
+                    Position createdPosition = positionDao.createPosition(positionName.toString(), teamID);
                     Log.d(TAG, "added position : " + createdPosition.getPositionName());
                     setResult(RESULT_OK); //sends result code to listpositions
                     finish(); //closes activity
@@ -63,7 +68,7 @@ public class AddPositionActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onDestroy() {
         super.onDestroy();
-                                                                                                                                                                    mTeamDao.close();
+        teamDao.close();
     }
 
 }
