@@ -145,6 +145,13 @@ public class TeamDAO {
         }
         return team;
     }
+
+    /**
+     * Returns a collection of database info with regard to id and name, specifically for the
+     * getTeamById method
+     * @param cursor the cursor being used for the database
+     * @return the team object
+     */
     protected Team cursorToTeamByID(Cursor cursor) {
         Team team = new Team();
         if(cursor != null && cursor.moveToFirst()){

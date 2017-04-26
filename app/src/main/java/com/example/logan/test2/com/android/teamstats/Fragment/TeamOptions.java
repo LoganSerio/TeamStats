@@ -86,9 +86,14 @@ public class TeamOptions extends Fragment{
         alertDialogBuilder.setTitle("Delete");
         alertDialogBuilder.setMessage("Are you sure you want to delete \"" + team.getName() + "\"  ?");
 
-        // set positive button YES message
+        // creates the positive button for the dialog popup
         alertDialogBuilder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
+            /**
+             * Deletes the team if the yes button is pressed
+             * @param dialog the dialog
+             * @param which
+             */
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // delete the team and refresh the list
@@ -101,19 +106,16 @@ public class TeamOptions extends Fragment{
             }
         });
 
-        // set neutral button OK
-        alertDialogBuilder.setNeutralButton(android.R.string.no, new DialogInterface.OnClickListener() {
+        // creates the negative button for the dialog popup
+        alertDialogBuilder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Dismiss the dialog
-                dialog.dismiss();
+                dialog.dismiss(); //returns to the previous screen if no cancel is pressed
             }
         });
-
         AlertDialog alertDialog = alertDialogBuilder.create();
-        // show alert
-        alertDialog.show();
+        alertDialog.show(); //displays the dialog
     }
 
 }

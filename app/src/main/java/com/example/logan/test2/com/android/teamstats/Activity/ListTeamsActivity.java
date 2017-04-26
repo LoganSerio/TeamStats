@@ -36,11 +36,11 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
     private List<Team> listTeams;
     private TeamDAO teamDao;
 
-    @Override
     /**
      * Initializes the activity and displays it on the device's screen
      * @param savedInstanceState saves the state of the app incase the app needs to be re-initialized
      */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_teams);
@@ -69,13 +69,13 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         this.listviewTeams.setOnItemLongClickListener(this);
     }
 
-    @Override
     /**
      * Calls when a user activity is terminated.
      * @param requestCode The integer request code originally supplied that allows you to trace back where the response comes from.
      * @param resultCode The integer result code returned by the child activity through its setResult().
      * @param data An Intent, which can return result data to the caller
      */
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ADD_TEAM) {
             if (resultCode == RESULT_OK) {
@@ -104,16 +104,15 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
             super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
     /**
-     * Closes the database.
+     * Cleans app up before moving to another activity
      */
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         teamDao.close();
     }
 
-    @Override
     /**
      * Allows for the user to interact and select a team from the view.
      * @param parent The AdapterView where the click happened.
@@ -121,6 +120,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      * @param position The position of the view in the adapter.
      * @param id The row id of the item that was clicked.
      * */
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = adapter.getItem(position);
         Log.d(TAG, "clickedItem : " + clickedTeam.getName());
@@ -129,7 +129,6 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
         startActivity(intent);
     }
 
-    @Override
     /**
      * In the event the user holds the team name down, the user has the option to delete the team.
      * @param parent The AbsListView where the click happened.
@@ -138,6 +137,7 @@ public class ListTeamsActivity extends AppCompatActivity implements AdapterView.
      * @param id The row id of the item that was clicked.
      * @return returns true is the click was held or false otherwise.
      */
+    @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Team clickedTeam = adapter.getItem(position);
         Log.d(TAG, "longClickedItem : " + clickedTeam.getName());
