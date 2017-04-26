@@ -8,7 +8,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomepageActivity">
+        <activity android:name=".HomepageActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,12 +18,16 @@
         </activity>
         <activity android:name=".SettingsActivity" />
         <activity android:name=".SendFeedbackActivity" />
-        <activity android:name=".AddPositionActivity" />
+        <activity android:name=".AddPositionActivity"
+                  android:background="@color/Linen" />
         <activity android:name=".ListPositionsActivity" />
         <activity android:name=".ListTeamsActivity" />
         <activity
             android:name=".CreateTeamActivity"
-            android:theme="@style/AppTheme.myTheme" />
+            android:theme="@style/AppTheme.myTheme"
+            android:label="Enter Team Name"
+            android:background= "@color/Linen"
+            />
         <activity
             android:name=".TeamPage"
             android:theme="@style/AppTheme.NoActionBar" />

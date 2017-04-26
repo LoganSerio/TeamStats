@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#ff4081</color>
     <color name="plaster">#918e8e</color>
     <color name="ICE">#99d3df</color>
@@ -12,4 +12,6 @@
     <color name="matdark">#2c3e50</color>
     <color name="matdark2">#34495e</color>
     <color name="randblue">#2980b9</color>
+    <color name="test">#1c3242</color>
+    <color name="TeamBlue">#88bbd6</color>
 </resources>

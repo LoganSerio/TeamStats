@@ -3,36 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    tools:context="com.example.logan.test2.AddPositionActivity" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/matdark"
+    tools:context="com.example.logan.test2.AddPositionActivity">
 
     <EditText
         android:id="@+id/txt_position_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="53dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/Linen"
         android:hint="Position name "
         android:inputType="text"
         android:textAppearance="?android:attr/textAppearance"
-        android:textColor="@android:color/black" />
+        android:textColor="@color/Linen"
+        android:textColorHint="@color/Linen"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:gravity="center"
+        android:text="All Statistics"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/Linen" />
 
     <Button
         android:id="@+id/btn_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="52dp"
+        android:layout_below="@+id/txt_position_name"
+        android:layout_marginTop="31dp"
+        android:background="?android:attr/colorControlActivated"
+        android:backgroundTint="#88BBD6"
         android:gravity="center"
         android:paddingBottom="2dp"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:paddingTop="2dp"
         android:text="add"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="18sp" />
 
 </RelativeLayout>

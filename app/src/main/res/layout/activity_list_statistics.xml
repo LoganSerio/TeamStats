@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/matdark"
     tools:context="com.example.logan.test2.ListPositionsActivity" >
 
     <TextView
@@ -12,9 +13,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:text="All Statistics"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/Linen" />
 
     <ImageButton
         android:id="@+id/btn_add_statistic"
@@ -25,6 +28,7 @@
         android:layout_alignParentTop="true"
         android:layout_margin="8dp"
         android:background="@android:color/transparent"
+        android:backgroundTint="@color/Linen"
         android:contentDescription="@null"
         android:src="@android:drawable/ic_menu_add" />
 
@@ -35,7 +39,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="4dp"
         android:gravity="center"
-        android:text="No positions created for this team. Add a new one by clicking the add button"
+        android:text="No statistics created for this team. Add a new one by clicking the add button"
         android:textAppearance="?android:attr/textAppearance"
         android:textColor="@android:color/darker_gray"
         android:visibility="gone" />
@@ -65,14 +69,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Back" />
+            android:background="?android:attr/colorControlActivated"
+            android:backgroundTint="#88BBD6"
+            android:text="Back"
+            android:textColor="@color/Linen" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.05" />
 
         <Button
             android:id="@+id/btn_finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Finish" />
+            android:background="?attr/colorControlActivated"
+            android:backgroundTint="#88BBD6"
+            android:text="Finish"
+            android:textColor="@color/Linen" />
     </LinearLayout>
 
 </RelativeLayout>

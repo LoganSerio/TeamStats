@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.logan.test2.ListPositionsActivity" >
+    android:background="@color/matdark"
+    tools:context="com.example.logan.test2.ListPositionsActivity">
 
     <TextView
         android:id="@+id/txt_header"
@@ -12,9 +13,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/matdark"
+        android:backgroundTintMode="@color/matdark"
         android:gravity="center"
         android:text="All Positions"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@color/Linen" />
 
     <ImageButton
         android:id="@+id/btn_add_position"
@@ -46,6 +51,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/txt_header"
         android:layout_margin="4dp"
+        android:background="@color/matdark"
+        android:backgroundTint="@color/matdark"
         android:divider="@android:drawable/divider_horizontal_bright"
         android:dividerHeight="0.5dp"
         android:listSelector="@android:drawable/list_selector_background" />

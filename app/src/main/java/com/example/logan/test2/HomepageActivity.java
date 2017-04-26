@@ -4,15 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 /**
  * A class that makes the homepage of the app
  */
 public class HomepageActivity extends AppCompatActivity {
-    ImageButton btnCreateNewTeam;
-    ImageButton btnExistingTeam;
-    ImageButton btnSettings;
+    Button btnCreateNewTeam;
+    Button btnExistingTeam;
+    Button btnSettings;
 
     /**
      * Initializes the activity and displays it on the device's screen
@@ -22,9 +22,9 @@ public class HomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        btnCreateNewTeam = (ImageButton) findViewById(R.id.btn_create_team);
-        btnExistingTeam = (ImageButton) findViewById(R.id.btn_existing_teams);
-        btnSettings = (ImageButton) findViewById(R.id.btn_settings);
+        btnCreateNewTeam = (Button) findViewById(R.id.btn_create_team);
+        btnExistingTeam = (Button) findViewById(R.id.btn_existing_teams);
+        btnSettings = (Button) findViewById(R.id.btn_settings);
 
         btnCreateNewTeam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +46,7 @@ public class HomepageActivity extends AppCompatActivity {
                 startActivity(new Intent(HomepageActivity.this,SettingsActivity.class));
             }
         });
+
 
     }
 }
