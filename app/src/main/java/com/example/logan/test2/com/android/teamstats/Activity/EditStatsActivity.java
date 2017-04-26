@@ -14,7 +14,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.logan.test2.com.android.teamstats.Base.Position;
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Base.Statistic;
 import com.example.logan.test2.com.android.teamstats.Base.Team;
 import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;

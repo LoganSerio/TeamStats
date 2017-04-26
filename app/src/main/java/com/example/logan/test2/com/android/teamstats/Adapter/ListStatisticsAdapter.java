@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Base.Statistic;
 
 import java.util.List;

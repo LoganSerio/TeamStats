@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 
 /**
  * The SettingsActivity class that contains the option to open the user manual and the send feedback page.

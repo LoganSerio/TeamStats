@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.logan.test2.com.android.teamstats.Base.Position;
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Base.Statistic;
 import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;
 import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;

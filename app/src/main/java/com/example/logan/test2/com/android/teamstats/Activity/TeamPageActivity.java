@@ -11,7 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Fragment.TeamOptions;
 import com.example.logan.test2.com.android.teamstats.Fragment.TeamOverview;
 

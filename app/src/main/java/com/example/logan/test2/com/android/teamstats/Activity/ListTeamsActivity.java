@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.logan.test2.com.android.teamstats.Adapter.ListTeamsAdapter;
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Base.Team;
 import com.example.logan.test2.com.android.teamstats.Database.TeamDAO;
 

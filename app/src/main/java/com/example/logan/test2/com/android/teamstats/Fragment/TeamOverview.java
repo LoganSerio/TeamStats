@@ -1,4 +1,4 @@
-package com.example.logan.test2;
+package com.example.logan.test2.com.android.teamstats.Fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +10,13 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.example.logan.test2.com.android.teamstats.R;
+import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
+import com.example.logan.test2.com.android.teamstats.Base.Team;
+import com.example.logan.test2.com.android.teamstats.Database.PositionDAO;
+import com.example.logan.test2.com.android.teamstats.Database.StatisticDAO;
 
 import java.util.ArrayList;
 

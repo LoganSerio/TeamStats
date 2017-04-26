@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.logan.test2.R;
+import com.example.logan.test2.com.android.teamstats.R;
 import com.example.logan.test2.com.android.teamstats.Base.Team;
 import com.example.logan.test2.com.android.teamstats.Activity.EditStatsActivity;
 import com.example.logan.test2.com.android.teamstats.Activity.HomepageActivity;
