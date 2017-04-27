@@ -25,9 +25,9 @@ To create your first team, click the Create New Team Button on the Homepage. At 
 # Managing teams
 The user may also choose to add another team before adding any positions. In this case, the user uses their phones designated back button from the position page and then return to the create a team page. At this point redo the procedure of creating a team.
 # Editing Positions
-From the point in which the user has selected a team, they are prompted with the option to add teams through the dropdown menu in the top right corner. The user may then choose to add type a new position for the desired team. 
+From the point in which the user has selected a team, they are prompted with the option to add teams through the dropdown menu in the top right corner. The user may then choose to add a new position for the desired team. Holding the name down allows for the user to delete the position. A simple click brings the user to the all statistics page.
 # Editing Statistics
-When the user finally gets to the statistics portion of the app, the user is prompted with the option to fill in statistics on a position by position basis for the games that the user has played. These statistics are then saved for future reference.
+The user gets to the statistics page by clicking one of the currently existing positions. When the user finally gets to the statistics portion of the app, the user is prompted with the option to fill in statistics on a position by position basis for the games that the user has played. These statistics are then saved for future reference.
 # Editing Teams
 The user may choose to edit their existing teams through the Existing Teams tab. In this case, a list of available teams is presented to the user. The user may then choose the desired team to edit. The user may also choose to delete the team by holding down the team name and then choosing to confirm the decision in the popup menu.
 # Exiting Team Stats
