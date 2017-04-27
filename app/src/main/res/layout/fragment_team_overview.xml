@@ -12,32 +12,21 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
 
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/blankButton"
         android:layout_below="@+id/tvTeamName">
 
         <TableLayout
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/tb"
-            android:stretchColumns="*">
-
-            <TableRow
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_width="0dp">
-
-                <TextView
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"/>
-
-            </TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         </TableLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </RelativeLayout>
