@@ -87,8 +87,6 @@ public class TeamDAO {
                 positionDao.deletePosition(e);
             }
         }
-
-        System.out.println("the deleted team has the id: " + id);
         database.delete(DatabaseHelper.TABLE_TEAMS, DatabaseHelper.COLUMN_TEAM_ID
                 + " = " + id, null);
     }

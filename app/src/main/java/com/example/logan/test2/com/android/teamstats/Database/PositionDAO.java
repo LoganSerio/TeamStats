@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.logan.test2.com.android.teamstats.Base.Position;
+import com.example.logan.test2.com.android.teamstats.Base.Statistic;
 import com.example.logan.test2.com.android.teamstats.Base.Team;
 
 import java.util.ArrayList;
@@ -83,6 +84,13 @@ public class PositionDAO {
      */
     public void deletePosition(Position position) {
         long id = position.getId(); // the id of the position to be deleted
+        StatisticDAO statisticDAO = new StatisticDAO(context);
+        List<Statistic> listStatistics = statisticDAO.getStatisticsOfPosition(id);
+        if (listStatistics != null && !listStatistics.isEmpty()) {
+            for (Statistic e : listStatistics) {
+                statisticDAO.deleteStatistic(e);
+            }
+        }
         //calls the delete function of the SQLiteDatabase class
         database.delete(DatabaseHelper.TABLE_POSITIONS, DatabaseHelper.COLUMN_POSITION_ID
                 + " = " + id, null);
