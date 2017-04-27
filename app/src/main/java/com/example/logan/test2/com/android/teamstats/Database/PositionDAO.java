@@ -121,7 +121,7 @@ public class PositionDAO {
     }
 
     /**
-     * Converts the cursor to the type Position
+     * Iterates the cursor to the position
      * @param cursor the cursor providing read-write access
      * @return the position
      */
@@ -155,7 +155,7 @@ public class PositionDAO {
     }
 
     /**
-     * Converts a cursror to position for the getPositionById method
+     * Iterates the cursor to position for the getPositionById method
      * @param cursor
      * @return
      */

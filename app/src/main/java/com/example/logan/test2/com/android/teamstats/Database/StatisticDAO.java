@@ -123,7 +123,7 @@ public class StatisticDAO {
     }
 
     /**
-     * Converts the cursor to a statistic
+     * Iterates the cursor to a statistic
      * @param cursor the cursor
      * @return the statistic
      */
