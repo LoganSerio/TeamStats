@@ -67,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     /**
      * Initializes the activity and displays it on the device's screen
-     * @param savedInstanceState saves the state of the app in case the app needs to be re-initialized
+     * @param database the database to be created
      */
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(SQL_CREATE_TABLE_TEAMS);
