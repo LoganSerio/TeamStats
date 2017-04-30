@@ -63,3 +63,8 @@ Disclaimer: Deleting a team is permanent and information about the deleted team 
 If the user presses the “Send Feedback” button, A new screen appears with a blank textbox for the message, another blank textbox for the user’s email address, and a button that says “Submit.” The user can write their feedback and email address in the text boxes and press the send button once finished. Our team will try to reach out to the user as soon as we can.
 # User Manual
 If the user chooses the option for user manual, they are then prompted with the list of installed options for how they wish to open the link. After the option is chosen, the developer’s GitHub page is linked. From here, the user manual is immediately on display. If the user desires to peruse the code through the GitHub page then they are also free to do so. 
+
+# References
+Android Studio Tutorial: https://youtu.be/dmqRuSeMYXk
+SQLite Tutorial: https://www.youtube.com/watch?v=zm3eQWKk3Mc
+Various Android Studio How To's: https://developer.android.com/guide/index.html
