@@ -7,13 +7,9 @@ Team Stats is an app designed for sports teams who wish to input data for the te
 # System Requirements
 The system minimum requirements include:
 
-• *** or faster processor
+• At least 2 MB of storage. 
 
-• *** or more RAM
-
-• At least *** free hard disk space
-
-• Android ** Operating System or newer
+• Android 4.0.3 Ice Cream Sandwhich or newer.
 
 # Points of Contact
 If the user has any complaints, feedback, or concerns regarding Team Stats or the development team, email TeamStatsFeedback@gmail.com and our team will respond as quick as possible. You can easily do this by clicking the settings button on the homepage (more detail on this process below). Additionally, users may also leave feedback on Team Stats’ Google Play Store page and our team will try to respond to most of the feedback.
