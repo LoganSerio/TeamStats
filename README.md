@@ -66,5 +66,7 @@ If the user chooses the option for user manual, they are then prompted with the 
 
 # References
 Android Studio Tutorial: https://youtu.be/dmqRuSeMYXk
+
 SQLite Tutorial: https://www.youtube.com/watch?v=zm3eQWKk3Mc
+
 Various Android Studio How To's: https://developer.android.com/guide/index.html
