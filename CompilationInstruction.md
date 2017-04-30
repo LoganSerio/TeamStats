@@ -1,6 +1,12 @@
 ## Compilation Instructions
 To run the app, you must have an android phone.
 
+## Option 1 - Downloading directly from the Google Play Store (Recommended):
+1. Download app from google play store at https://play.google.com/store/apps/details?id=com.teamstats.android.abc
+2. You have now installed the app.
+
+## Option 2 - Installing the .apk manually.
+
 ### Setting up your phone.
 1. Go to phone settings.
 2. Navigate to Security and Privacy
