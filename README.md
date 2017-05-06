@@ -7,13 +7,9 @@ Team Stats is an app designed for sports teams who wish to input data for the te
 # System Requirements
 The system minimum requirements include:
 
-• *** or faster processor
+• At least 2 MB of storage. 
 
-• *** or more RAM
-
-• At least *** free hard disk space
-
-• Android ** Operating System or newer
+• Android 4.0.3 Ice Cream Sandwhich or newer.
 
 # Points of Contact
 If the user has any complaints, feedback, or concerns regarding Team Stats or the development team, email TeamStatsFeedback@gmail.com and our team will respond as quick as possible. You can easily do this by clicking the settings button on the homepage (more detail on this process below). Additionally, users may also leave feedback on Team Stats’ Google Play Store page and our team will try to respond to most of the feedback.
@@ -63,3 +59,10 @@ Disclaimer: Deleting a team is permanent and information about the deleted team 
 If the user presses the “Send Feedback” button, A new screen appears with a blank textbox for the message, another blank textbox for the user’s email address, and a button that says “Submit.” The user can write their feedback and email address in the text boxes and press the send button once finished. Our team will try to reach out to the user as soon as we can.
 # User Manual
 If the user chooses the option for user manual, they are then prompted with the list of installed options for how they wish to open the link. After the option is chosen, the developer’s GitHub page is linked. From here, the user manual is immediately on display. If the user desires to peruse the code through the GitHub page then they are also free to do so. 
+
+# References
+Android Studio Tutorial: https://youtu.be/dmqRuSeMYXk
+
+SQLite Tutorial: https://www.youtube.com/watch?v=zm3eQWKk3Mc
+
+Various Android Studio How To's: https://developer.android.com/guide/index.html
